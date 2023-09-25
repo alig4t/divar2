@@ -1,8 +1,8 @@
 import React from 'react';
-import { CityProvider } from '../../Context/CityContext';
+// import { CityProvider } from '../../Context/CityContext';
+// import { CategoryProvider } from '../../Context/CategoryContext';
 import Main from './Main';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { CategoryProvider } from '../../Context/CategoryContext';
 
 const MainCore = () => {
     console.log("MainCore Render..");
@@ -17,11 +17,7 @@ const MainCore = () => {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <CityProvider>
-                <CategoryProvider>
-                    <Main />
-                </CategoryProvider>
-            </CityProvider>
+            <Main />
         </QueryClientProvider>
     );
 }

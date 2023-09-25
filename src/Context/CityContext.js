@@ -24,8 +24,10 @@ export const CityProvider = (props) => {
     // const value = useMemo(() =>
     // ({ currentCity, setCurrentCity,titleForNav })
     // , [currentCity])
-    const value = useMemo(() => ([currentCity, setCurrentCity,titleForNav]), [currentCity]);
+    // const value = useMemo(() => ([currentCity, setCurrentCity,titleForNav]), [currentCity]);
     // [currentCity, setCurrentCity,titleForNav]
+    const value = React.useMemo(() => [currentCity, setCurrentCity,titleForNav], [currentCity])
+    
     return (
         <CityContext.Provider
             value={value}

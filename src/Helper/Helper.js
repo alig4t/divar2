@@ -1,13 +1,13 @@
 import CatList from '../JsonFiles/catlist.json'
 
 export const isCatSlugValid = (slug) => {
-   
-    if (slug === undefined || slug === '') return [true, {'sss':'sss'}]
+
+    if (slug === undefined || slug === '') return [true,'']
     let catObj = CatList.find((cat) => {
         return cat.slug === slug
     })
-    if (catObj == undefined) return [false, 'ee']
-    return [true,catObj]
+    if (catObj == undefined) return [false, '']
+    return [true, catObj.slug]
 }
 
 export const URLMaker = (city = [], cat, filters = {}) => {
@@ -90,4 +90,20 @@ export const getSortedCities = (cityList) => {
 
 export const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
+export const getQueryObjectUrl = () => {
+    let queryParams = []
+    if (window.location.search !== "") {
+        let urlQueryString = window.location.search.slice(1);
+        let urlQueryArray = urlQueryString.split("&");
+        urlQueryArray.forEach((item) => {
+            let subQuery = item.split("=");
+            if (subQuery[0] !== 'cities') {
+                queryParams.push(subQuery[0])
+            }
+        })
+    }
+    return queryParams
 }

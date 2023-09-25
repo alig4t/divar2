@@ -1,5 +1,5 @@
 
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import CatList from "./../JsonFiles/catlist.json"
 import AllFilters from "./../JsonFiles/AllFilters.json"
 import DefaultFilters from "./../JsonFiles/DefaultFilters.json"
@@ -23,11 +23,18 @@ export const CategoryProvider = (props) => {
         return [true, catObj]
     }
 
+    const setDefaultCat = () => {
+        if(currentCat.id > 0) {
+            setCurrentCat({ id: -1, slug: "", filters: [...DefaultFilters, ...DefaultFilters2] })
+        }
+    }
 
     const setCatAndFiltersHanler = (slug) => {
         let [isValid, catObj] = isCatSlugValid(slug)
 
         if (catObj.id > 0) {
+            console.log("id>0");
+
             let filtersCat = AllFilters.filter((fil) => {
                 return fil.catId.includes(catObj.id)
             })
@@ -37,16 +44,21 @@ export const CategoryProvider = (props) => {
             } else {
                 newFilterArray = [...DefaultFilters, ...DefaultFilters2]
             }
-            setCurrentCat({...catObj,filters:newFilterArray})
+            setCurrentCat({ ...catObj, filters: newFilterArray })
+        } else {
+            console.log("id===0");
+            console.log(currentCat.id);
+            setDefaultCat()
+           
+            
         }
 
+
     }
-    const clearCat = () => {
-        setCurrentCat({ id: -1, slug: "", filters: [...DefaultFilters, ...DefaultFilters2] })
-    }
+  
 
 
-    const value = useMemo(() => ([currentCat, setCatAndFiltersHanler,clearCat]), [currentCat]);
+    const value = useMemo(() => ([currentCat, setCatAndFiltersHanler]), [currentCat]);
 
     return (
         <CategoryContext.Provider

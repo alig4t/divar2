@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 import Layout from "../../Components/Layout/Layout";
 import { Button, Container, Row } from "react-bootstrap";
-import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { CityContext } from "../../Context/CityContext";
 import CityList from "../../Components/Cities/Cities.json"
 import CatList from "../../JsonFiles/catlist.json"
@@ -23,7 +23,7 @@ const Main = () => {
 
 
     const [currentCity, setCurrentCity] = useContext(CityContext)
-    const [,setCatAndFiltersHanler] = useContext(CategoryContext)
+    const [, setCatAndFiltersHanler] = useContext(CategoryContext)
 
     const [wrongUrl, setWrongUrl] = useState({ cat: false, city: false })
 
@@ -32,30 +32,17 @@ const Main = () => {
     const regexHash = /(^\d+(\%2C\d+)*$)/g;
 
     useEffect(() => {
-        
-        let prevCat = localStorage.getItem("catSlug")
-        let [isValidCat, catObj] = isCatSlugValid(catParam)
-        
-        // console.log(isValidCat);
-        // console.log(catObj.id);
-        // if(isValidCat && catObj.id>0){
-        //     console.log("sss");
-        // }else{
-        //     console.log("empty");
-        // }
-        setCatAndFiltersHanler(catParam)
+        console.log("catParam");
+        let [isValidCat,catSlug] = isCatSlugValid(catParam)
+        if (!isValidCat) {
+            setWrongUrl({ city: false, cat: true })
+        } else {
+            setCatAndFiltersHanler(catParam)
+            localStorage.setItem("catSlug",catSlug)
+            setWrongUrl({ city: false, cat: false })
+        }
 
-
-        // if (isValidCat && catPath !== '') {
-        //     localStorage.setItem("catSlug", catParam)
-        // }
-        // if (!isValidCat) {
-        //     setWrongUrl({ city: false, cat: true })
-        // } else {
-        //     setWrongUrl({ city: false, cat: false })
-        // }
-
-    }, [])
+    }, [catParam])
 
 
     useEffect(() => {
@@ -111,7 +98,7 @@ const Main = () => {
         }
 
 
-    }, [])
+    }, [location])
 
 
     return (
@@ -119,7 +106,7 @@ const Main = () => {
             <Layout>
                 <Container fluid>
                     {
-                        wrongUrl.cat ? <NotFound /> :
+                        wrongUrl.cat ? <NotFound msg="همچین دسته بندی در سایت موجود نمی باشد" /> :
                             <Row>
                                 <div className='d-none d-md-block col-md-4 col-lg-3'>
                                     <Sidebar />
@@ -136,7 +123,10 @@ const Main = () => {
 
             </Layout>
 
-            <Button className="mt-5" onClick={() => setRen(ren + 1)} type='button' variant='danger' >Rerender {ren}</Button>
+            <Button className="mt-5" style={{ float: "left" }} onClick={() => setRen(ren + 1)} type='button' variant='danger' >Rerender {ren}</Button>
+            <Link to="/s/tehran/wwwwww" style={{ float: "left" }} >cat</Link>{' '}
+            <Link to="/s/tehran/" style={{ float: "left" }} >right link</Link>{' '}
+            <Link to="/s/tehran/real-estate" style={{ float: "left" }} >right link</Link>{' '}
         </>
     );
 }
