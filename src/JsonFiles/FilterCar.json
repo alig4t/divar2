@@ -1,0 +1,169 @@
+[
+    {
+        "slug": "districts",
+        "type": "DistrictFilter",
+        "title": "محله",
+        "itemsList": [
+            {
+                "id": 12,
+                "title": "آجودانیه",
+                "city": 113,
+                "neighbours": "سباری، موحد دانش، منجیل"
+            },
+            {
+                "id": 13,
+                "title": "آذربایجان",
+                "city": 113,
+                "neighbours": "کلهر، آذربایجان، رودکی، آزادی"
+            },
+            {
+                "id": 14,
+                "title": "اختیاریه",
+                "city": 113,
+                "neighbours": "اختیاریه شمالی، دیباجی جنوبی، کلاهدوز، پاسداران، منظریه، جهانتاب، کاوه، سنجابی"
+            },
+            {
+                "id": 15,
+                "title": "تهران‌ویلا",
+                "city": 113,
+                "neighbours": "امام منتظر، ستارخان، منصوری کیا"
+            },
+            {
+                "id": 16,
+                "title": "قیطریه",
+                "city": 113,
+                "neighbours": "قیطریه، اندرزگو، صبا، کاوه، پل رومی، شریعتی، سبحان، سهیل، بهار شمالی، صدر، قلندری شمالی، صدر، قیطریه"
+            },
+            {
+                "id": 31,
+                "title": "باغ نگار",
+                "city": 132,
+                "neighbours": "هفت دست، فیض"
+            },
+            {
+                "id": 32,
+                "title": "بهاران",
+                "city": 132,
+                "neighbours": ""
+            },
+            {
+                "id": 33,
+                "title": "فرهنگ",
+                "city": 132,
+                "neighbours": "باغ زیار، سهروردی، کشاورز"
+            }
+        ]
+    },
+    {
+        "slug": "price",
+        "type": "MinMaxTypeFilter",
+        "title": "قیمت",
+        "unit": "تومان",
+        "suggestMin": [
+            10000,
+            20000,
+            50000,
+            100000,
+            200000,
+            500000,
+            1000000,
+            2000000,
+            5000000,
+            10000000
+        ],
+        "suggestMax": [
+            10000,
+            20000,
+            50000,
+            100000,
+            200000,
+            500000,
+            1000000,
+            2000000,
+            5000000,
+            10000000
+        ],
+        "exampleMin": "مثلا 40,000,000 ",
+        "exampleMax": "مثلا 70,000,000 "
+    },
+    {
+        "slug": "brand",
+        "type": "DistrictFilter",
+        "title": "برند",
+        "itemsList": [
+            {
+                "id": 12,
+                "title": "ایسر"
+            },
+            {
+                "id": 13,
+                "title": "سامسونگ"
+            },
+            {
+                "id": 14,
+                "title": "الجی"
+            }
+        ]
+    },
+    {
+        "slug": "production-year",
+        "type": "MinMaxTypeFilter",
+        "title": "مدل (سال تولید)",
+        "unit": "متر",
+        "suggestMin": [
+            1402,
+            1401,
+            1400,
+            1399,
+            1398,
+            1397,
+            1396,
+            1395
+        ],
+        "suggestMax": [
+            1402,
+            1401,
+            1400,
+            1399,
+            1398,
+            1397,
+            1396,
+            1395
+        ],
+        "exampleMin": "مثلا 1393",
+        "exampleMax": "مثلا 1396"
+    },
+    {
+        "slug": "post-type",
+        "type": "SelectTypeFilter",
+        "title": "نوع آگهی",
+        "unit": "سال",
+        "suggestList": [
+            {
+                "title": "فروشی",
+                "value": "offer"
+            },
+            {
+                "title": "درخواستی",
+                "value": "request"
+            }
+        ],
+        "placeHolder": "فروشی یا درخواستی"
+    },
+    {
+        "title": "وضعیت آگهی",
+        "type": "StatusFilter",
+        "itemsList": [
+            {
+                "title": "حذف توافقی ها",
+                "slug": "non-negotiable",
+                "enTitle": "negotiable"
+            },
+            {
+                "title": "فقط فوری ها",
+                "slug": "urgent",
+                "enTitle": "urgent"
+            }
+        ]
+    }
+]

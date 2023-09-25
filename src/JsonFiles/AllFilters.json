@@ -1,0 +1,184 @@
+[
+    {
+        "catId": [
+            15,
+            51,
+            52,
+            53,
+            54,
+            61,
+            62,
+            63
+        ],
+        "filter": [{
+            "slug": "brand_model",
+            "type": "DistrictFilter",
+            "title": "برند و تیپ",
+            "itemsList": [
+                {
+                    "id": 65,
+                    "title": "هیوندای"
+                },
+                {
+                    "id": 68,
+                    "title": "کیا"
+                },
+                {
+                    "id": 74,
+                    "title": "پژو"
+                },
+                {
+                    "id": 74,
+                    "title": "پراید"
+                }
+            ]
+        },
+        {
+            "slug": "production-year",
+            "type": "MinMaxTypeFilter",
+            "title": "مدل (سال تولید)",
+            "unit": "",
+            "isPrice":false,
+            "suggestMin": [
+                1402,
+                1401,
+                1400,
+                1399,
+                1398,
+                1397,
+                1396,
+                1395
+            ],
+            "suggestMax": [
+                1402,
+                1401,
+                1400,
+                1399,
+                1398,
+                1397,
+                1396,
+                1395
+            ],
+            "exampleMin": "مثلا 1393",
+            "exampleMax": "مثلا 1396"
+        },
+        {
+            "slug": "post-type",
+            "type": "SelectTypeFilter",
+            "title": "نوع آگهی",
+            "unit": "سال",
+            "suggestList": [
+                {
+                    "title": "فروشی",
+                    "value": "offer"
+                },
+                {
+                    "title": "درخواستی",
+                    "value": "request"
+                }
+            ],
+            "placeHolder": "فروشی یا درخواستی"
+        }
+    ]},
+    {
+        "catId": [14,31,32,33,34,35,41,42,43,46,47,48],
+        "filter": [
+            {
+                "slug": "building-age",
+                "type": "SelectTypeFilter",
+                "title": "سن بنا",
+                "unit": "سال",
+                "suggestList": [
+                    {
+                        "title": "حداکثر 1 سال",
+                        "value": "1"
+                    },
+                    {
+                        "title": "حداکثر 2 سال",
+                        "value": "2"
+                    },
+                    {
+                        "title": "حداکثر 5 سال",
+                        "value": "5"
+                    },
+                    {
+                        "title": "حداکثر 10 سال",
+                        "value": "10"
+                    },
+                    {
+                        "title": "حداکثر 15 سال",
+                        "value": "15"
+                    },
+                    {
+                        "title": "حداکثر 20 سال",
+                        "value": "20"
+                    },
+                    {
+                        "title": "حداکثر 25 سال",
+                        "value": "25"
+                    },
+                    {
+                        "title": "حداکثر 30 سال",
+                        "value": "30"
+                    },
+                    {
+                        "title": "بیش از 30 سال",
+                        "value": "30-"
+                    }
+                ],
+                "placeHolder": "سن بنا را انتخاب نمایید"
+            },
+            {
+                "slug": "user_type",
+                "type": "RadioBoxFilter",
+                "title": "آگهی دهنده",
+                "itemsList": [
+                    {
+                        "title": "همه",
+                        "value": "all"
+                    },
+                    {
+                        "title": "شخصی",
+                        "value": "personal"
+                    },
+                    {
+                        "title": "مشاور املاک",
+                        "value": "agency"
+                    }
+                ],
+                "default": "all"
+            },
+            {
+                "slug": "rooms",
+                "type": "CheckboxFilter",
+                "title": "تعداد اتاق",
+                "itemsList": [
+                    {
+                        "title": "بدون اتاق",
+                        "value": "noroom"
+                    },
+                    {
+                        "title": "1",
+                        "value": "1"
+                    },
+                    {
+                        "title": "2",
+                        "value": "2"
+                    },
+                    {
+                        "title": "3",
+                        "value": "3"
+                    },
+                    {
+                        "title": "4",
+                        "value": "4"
+                    },
+                    {
+                        "title": "بیشتر از 4",
+                        "value": "more"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {"id":14,"slug":"real-estate","title":"املاک","parent":0,"icon":"house-svgrepo-com (3).svg","hasChildren":true},
+    {"id":15,"slug":"vehicles","title":"وسایل نقلیه","parent":0, "icon":"car-svgrepo-com (2).svg","hasChildren":true},
+    {"id":16,"slug":"electronic-devices","title":"کالای دیجیتال","parent":0,"icon":"smartphone-svgrepo-com.svg","hasChildren":true},
+    {"id":17,"slug":"home-kitchen","title":"خانه و آشپزخانه","parent":0,"icon":"oven-svgrepo-com.svg","hasChildren":true},
+    {"id":18,"slug":"services","title":"خدمات","parent":0,"icon":"broom-svgrepo-com (1).svg","hasChildren":true},
+    {"id":19,"slug":"personal-goods","title":"وسایل شخصی","parent":0,"icon":"smartwatch-svgrepo-com.svg","hasChildren":true},
+    {"id":20,"slug":"entertainment","title":"سرگرمی و فراغت","parent":0,"icon":"train-timetable-italy-svgrepo-com.svg","hasChildren":true},
+    {"id":21,"slug":"social-services","title":"اجتماعی","parent":0,"icon":"people-multiple-svgrepo-com.svg","hasChildren":true},
+    {"id":22,"slug":"jobs","title":"استخدام و کاریابی","parent":0,"icon":"trip-suitcase-svgrepo-com.svg","hasChildren":true},
+
+    {"id":31,"slug":"buy-residential","title":"فروش مسکونی","parent":14,"icon":"","hasChildren":true},
+    {"id":32,"slug":"rent-residential","title":"اجاره مسکونی","parent":14,"icon":"","hasChildren":true},
+    {"id":33,"slug":"buy-commercial-property","title":"فروش اداری و تجاری","parent":14,"icon":"","hasChildren":false},
+    {"id":34,"slug":"rent-commercial-property","title":"اجاره اداری و تجاری","parent":14,"icon":"","hasChildren":false},
+    {"id":35,"slug":"rent-temporary","title":"اجاره کوتاه مدت","parent":14,"icon":"","hasChildren":false},
+
+    {"id":41,"slug":"buy-apartment","title":"آپارتمان","parent":31,"icon":"","hasChildren":false},
+    {"id":42,"slug":"buy-villa","title":"خانه و ویلا","parent":31,"icon":"","hasChildren":false},
+    {"id":43,"slug":"buy-old-house","title":"زمین و کلنگی","parent":31,"icon":"","hasChildren":false},
+
+    {"id":46,"slug":"rent-apartment","title":"آپارتمان","parent":32,"icon":"","hasChildren":false},
+    {"id":47,"slug":"rent-villa","title":"خانه و ویلا","parent":32,"icon":"","hasChildren":false},
+    {"id":48,"slug":"rent-old-house","title":"زمین و کلنگی","parent":32,"icon":"","hasChildren":false},
+
+    {"id":51,"slug":"auto","title":"خودرو","parent":15,"icon":"","hasChildren":true},
+    {"id":52,"slug":"motorcycles","title":"موتورسیکلت","parent":15,"icon":"","hasChildren":false},
+    {"id":53,"slug":"car-accessories","title":"قطعات یدکی و لوازم جانبی","parent":15,"icon":"","hasChildren":false},
+    {"id":54,"slug":"boat","title":"قایق و سایر وسایل نقلیه","parent":15,"icon":"","hasChildren":false},
+
+    {"id":61,"slug":"car","title":"سواری و وانت","parent":51,"icon":"","hasChildren":false},
+    {"id":62,"slug":"classic-car","title":"کلاسیک","parent":51,"icon":"","hasChildren":false},
+    {"id":63,"slug":"heavy-car","title":"سنگین","parent":51,"icon":"","hasChildren":false}
+]

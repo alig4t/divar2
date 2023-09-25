@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import MainCore from './Pages/Main/MainCore';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  console.log("App render");
+  
+  return (<>
+    <Routes>
+      <Route>
+        <Route path='/s/:city/:catParam?' element={<MainCore />} />
+        <Route path='/v/:title/:code' element={<h1>Single PAge</h1>} />
+      </Route>
+    </Routes>
+
+  </>
   );
 }
 

@@ -1,0 +1,76 @@
+[
+   {
+        "slug": "price",
+        "type": "MinMaxTypeFilter",
+        "title": "قیمت",
+        "unit": "تومان",
+        "suggestMin": [10000, 20000, 50000, 100000, 200000, 500000, 1000000, 2000000, 5000000, 10000000],
+        "suggestMax": [10000, 20000, 50000, 100000, 200000, 500000, 1000000, 2000000, 5000000, 10000000],
+        "exampleMin": "مثلا 40,000,000 ",
+        "exampleMax": "مثلا 70,000,000 "
+    },
+    
+
+    {
+        "slug": "meter",
+        "type": "MinMaxTypeFilter",
+        "title": "متراژ",
+        "unit": "متر",
+        "suggestMin": [50, 60, 70, 80],
+        "suggestMax": [50, 60, 70, 80],
+        "exampleMin": "مثلا 70",
+        "exampleMax": "مثلا 140"
+    },
+    {
+        "slug": "building-age",
+        "type": "SelectTypeFilter",
+        "title": "سن بنا",
+        "unit": "سال",
+        "suggestList": [
+            { "title": "حداکثر 1 سال", "value": "1" },
+            { "title": "حداکثر 2 سال", "value": "2" },
+            { "title": "حداکثر 5 سال", "value": "5" },
+            { "title": "حداکثر 10 سال", "value": "10" },
+            { "title": "حداکثر 15 سال", "value": "15" },
+            { "title": "حداکثر 20 سال", "value": "20" },
+            { "title": "حداکثر 25 سال", "value": "25" },
+            { "title": "حداکثر 30 سال", "value": "30" },
+            { "title": "بیش از 30 سال", "value": "30-" }
+        ],
+        "placeHolder": "سن بنا را انتخاب نمایید"
+    },
+   
+    {
+        "slug": "user_type",
+        "type": "RadioBoxFilter",
+        "title": "آگهی دهنده",
+        "itemsList": [
+            { "title": "همه", "value": "all" },
+            { "title": "شخصی", "value": "personal" },
+            { "title": "مشاور املاک", "value": "agency" }
+        ],
+        "default": "all"
+    },
+    {
+        "slug": "rooms",
+        "type": "CheckboxFilter",
+        "title": "تعداد اتاق",
+        "itemsList": [
+            { "title": "بدون اتاق", "value": "noroom" },
+            { "title": "1", "value": "1" },
+            { "title": "2", "value": "2" },
+            { "title": "3", "value": "3" },
+            { "title": "4", "value": "4" },
+            { "title": "بیشتر از 4", "value": "more" }
+        ]
+    }, 
+    {
+        "title": "امکانات تصویری آگهی",
+        "type": "StatusFilter",
+        "itemsList": [
+            { "title": "ویدیو دار", "slug": "has-video", "enTitle": "video" },
+            { "title": "عکس دار", "slug": "has-photo", "enTitle": "image2" }
+        ]
+    }
+
+]

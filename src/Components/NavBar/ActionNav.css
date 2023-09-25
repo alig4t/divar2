@@ -1,0 +1,73 @@
+
+.dv-actionnav-container {
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+  }
+  
+  .dv-actionnav-container.sticky-top {
+    top: 63px !important;
+  }
+
+.dv-action-badge {
+    margin-left: 7px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .12);
+    color: rgba(0, 0, 0, .56);
+    font-size: .875rem;
+    font-weight: 400;
+    outline: none;
+    border-radius: 16px;
+    line-height: 2;
+    padding: 0 12px;
+    cursor: pointer;
+  }
+  
+  .dv-action-badge.active {
+    border-color: #c53b3b ;
+    color: #c53b3b;
+    background-color: #ffeeee;
+    padding-left: 5px;
+  }
+
+
+.dv-deleteFilter {
+    /* vertical-align: -1; */
+    cursor: pointer;
+    border-radius: 100%;
+    transition: all ease 0.2s;
+    margin-right: 3px;
+  }
+  .dv-deleteFilter a{
+    color: #c53b3b;
+  
+  }
+  .dv-deleteFilter:hover {
+    background-color: rgba(249, 194, 194, 0.5);
+  }
+  
+  .dv-deleteFilter svg {
+    font-size: 22px;
+  }
+  
+  
+  .dv-action-nav::-webkit-scrollbar,
+  .dv-action-nav::-webkit-scrollbar-thumb {
+    width: 16px;
+    border-radius: 13px;
+    background-clip: padding-box;
+    border: 7px solid #fff;
+  }
+  
+  .dv-action-nav::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 5px;
+    color: rgba(227, 227, 227, 0.28);
+    /* border: 4px solid red; */
+  }
+  
+  .dv-action-nav::-webkit-scrollbar {
+    width: 4px;
+  }
+  .dv-actionnav-container.sticky-top {
+    top: 63px !important;
+  }
+  

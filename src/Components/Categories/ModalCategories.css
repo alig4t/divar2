@@ -1,0 +1,34 @@
+
+.dvm-catlist {
+    font-size: 14px;
+    color: #3a3a3a;
+    font-weight: 400;
+    transition: all ease 1s;
+    cursor: pointer;
+    border-top: 0 !important;
+    animation: "fadein";
+    border-right: 0 !important;
+    border-left: 0 !important;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0;
+  }
+  
+  .dvm-catlist:last-child {
+    border-radius: 0 !important;
+
+    /* border-bottom:0 !important ; */
+  }
+
+.dvm-icon-cat {
+    margin-left: 8px;
+    font-size: 19px;
+  }
+  
+.dvm-icon-arrow {
+    float: left;
+    line-height: 21px;
+    font-size: 16px;
+    color: #8a8a8a;
+  }
+
+  

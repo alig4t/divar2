@@ -1,0 +1,44 @@
+[
+    { "id": 1, "title": "آذربایجان غربی" ,"parent":0,"slug":""},
+    { "id": 2, "title": "آذربایجان شرقی" ,"parent":0,"slug":"xxx"},
+    { "id": 27, "title": "اردبیل" ,"parent":0,"slug":""},
+    { "id": 3, "title": "اصفهان" ,"parent":0,"slug":""},
+    { "id": 17, "title": "تبریز" ,"parent":0,"slug":""},
+    { "id": 21, "title": "تهران" ,"parent":0,"slug":""},
+    { "id": 84, "title": "مشهد" ,"parent":0,"slug":""},
+    { "id": 34, "title": "فارس" ,"parent":0,"slug":""},
+    { "id": 99, "title": "یزد" ,"parent":0,"slug":""},
+
+    { "id": 111, "title": "اسلام شهر" ,"parent":21,"slug":"eslamshahr"},
+    { "id": 112, "title": "بومهن" ,"parent":21,"slug":"bomehen"},
+    { "id": 113, "title": "تهران" ,"parent":21,"slug":"tehran"},
+    { "id": 114, "title": "فشم" ,"parent":21,"slug":"fasham"},
+    { "id": 115, "title": "لواسان" ,"parent":21,"slug":"lavasan"},
+    { "id": 116, "title": "ورامین" ,"parent":21,"slug":"varamin"},
+
+    { "id": 131, "title": "خمینی شهر" ,"parent":3,"slug":"khomeyni-shahr"},
+    { "id": 132, "title": "اصفهان" ,"parent":3,"slug":"isfahan"},
+    { "id": 133, "title": "سمیرم" ,"parent":3,"slug":"semirom"},
+    { "id": 134, "title": "شاهین شهر" ,"parent":3,"slug":"shahinshahr"},
+    { "id": 135, "title": "لنجان" ,"parent":3,"slug":"lenjan"},
+    { "id": 136, "title": "فلاورجان" ,"parent":3,"slug":"felavarjan"},
+    { "id": 137, "title": "فولادشهر" ,"parent":3,"slug":"fooladshahr"},
+    { "id": 138, "title": "گلپایگان" ,"parent":3,"slug":"golpayegan"},
+    { "id": 139, "title": "مبارکه" ,"parent":3,"slug":"mobarake"},
+
+
+    { "id": 151, "title": "ارومیه" ,"parent":1,"slug":"urmia"},
+    { "id": 152, "title": "مهاباد" ,"parent":1,"slug":"mahabad"},
+    
+
+    { "id": 171, "title": "تبریز" ,"parent":2,"slug":"tabriz"},
+    { "id": 172, "title": "مرند" ,"parent":2,"slug":"marand"},
+    
+
+    { "id": 191, "title": "اردبیل" ,"parent":27,"slug":"ardebil"},
+    { "id": 192, "title": "سرعین" ,"parent":27,"slug":"sarein"}
+    
+
+
+
+]
