@@ -1,33 +1,25 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Container, Dropdown, Form, Row } from 'react-bootstrap';
+import { Badge, Container, Dropdown, Form, Row } from 'react-bootstrap';
 import "./style.css"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import CityList from "../../JsonFiles/city.json"
+import CityList from "../../JsonFiles/Cities.json"
+import Provinces from "../../JsonFiles/Provinces.json"
 import WrongUrlMsg from '../../Components/UI/WrongUrlMsg/WrongUrlMsg';
-// import WrongUrlMsg from '../../Components/UI/WrongUrlMsg';
-
-// import { toEn } from "@persian-tools/persian-tools";
-
-// import { toEn } from 'farsi-tools';
-
-// import {f2f} from 'f2f'
 
 const SelectCity = () => {
-
-    //    
-    var f2f = require('f2f');
-    var FFF = new f2f();
 
 
     const navigate = useNavigate()
     const location = useLocation()
     const states = CityList.filter((city) => city.parent !== 0)
 
+    useEffect(()=>{
+        navigate('/s/tehran',{replace:true})
+    },[])
+
+
     const [inputSearch, setInputSearch] = useState("")
     const [suggestList, setSuggestList] = useState([]);
-
-    console.log(FFF.simplef2f("سلام"));
-
 
     const topCities = [
         { "id": 112, "title": "بومهن", "parent": 21, "slug": "bomehen" },
@@ -44,18 +36,23 @@ const SelectCity = () => {
 
     const filterCityListHandler = (e) => {
         console.log(e);
-        let filteredCities = states.filter((city) => {
-            if (city.title.indexOf(e) > -1 || city.slug.indexOf(e.toLowerCase()) > -1) {
-                return city
-            }
-        })
-        // console.log(filteredCities);
         setInputSearch(e)
-        setSuggestList(filteredCities)
+        if (e.length > 0) {
+            let filteredCities = CityList.filter((city) => {
+                if (city.title.indexOf(e) > -1 || city.slug.indexOf(e.toLowerCase()) > -1) {
+                    return city
+                }
+            })
+            setSuggestList(filteredCities)
+        } else {
+            setSuggestList([])
+        }
+
+        // console.log(filteredCities);
     }
-    useEffect(() => {
-        console.log(suggestList);
-    })
+
+
+
 
     return (
         <Container className='py-4' fluid>
@@ -67,7 +64,7 @@ const SelectCity = () => {
                         <Dropdown show={inputSearch.length > 0} className='dv-filter-dropdown search' drop='down-centered'>
                             <Dropdown.Menu>
                                 {suggestList.map((item, index) => {
-                                    return <Dropdown.Item key={index}><Link to={`/s/${item.slug}`}>{item.title}</Link></Dropdown.Item>
+                                    return <Dropdown.Item key={index}><Link to={`/s/${item.slug}`} state={{wrong:false}} >{item.title}</Link></Dropdown.Item>
                                 })}
 
                                 {/* <Dropdown.Divider /> */}
@@ -81,7 +78,11 @@ const SelectCity = () => {
                         <h1 className='pt-5 pb-2 select-city-header'>شهر های پر بازدید</h1>
                         <div className='list-city d-flex flex-rox flex-wrap justify-content-between'>
                             {topCities.map((city) => {
-                                return <Link key={city.id} to={`/s/${city.slug}`}>{city.title}</Link>
+                                return <Link key={city.id} to={`/s/${city.slug}`}>
+                                   <Badge bg='Warning' text="dark">
+                                    {city.title}
+                                   </Badge>
+                                    </Link>
 
                             })}
 
@@ -99,7 +100,7 @@ const SelectCity = () => {
                 </div>
             </Row>
             <Row>
-                {location.state !== null ? location.state.wrong ? <WrongUrlMsg currentCity="" /> : "" : ""}
+                {location.state !== null ? location.state.wrong ? <WrongUrlMsg currentCity="" /> : "" :""}
             </Row>
         </Container>
     );

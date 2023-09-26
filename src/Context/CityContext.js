@@ -15,10 +15,14 @@ export const CityProvider = (props) => {
 
 
     let titleForNav = 'انتخاب کنید'
-    if(currentCity.idsArray.length > 1){
+    let slug = '';
+
+    if (currentCity.idsArray.length > 1) {
         titleForNav = currentCity.idsArray.length + " " + "شهر"
-    }else if(currentCity.idsArray.length === 1){
+        slug = "/s/iran?cities=" + currentCity.idsArray.join('%2C')
+    } else if (currentCity.idsArray.length === 1) {
         titleForNav = currentCity.citiesList[0].title
+        slug = "/" + currentCity.citiesList[0].slug
     }
 
     // const value = useMemo(() =>
@@ -26,8 +30,8 @@ export const CityProvider = (props) => {
     // , [currentCity])
     // const value = useMemo(() => ([currentCity, setCurrentCity,titleForNav]), [currentCity]);
     // [currentCity, setCurrentCity,titleForNav]
-    const value = React.useMemo(() => [currentCity, setCurrentCity,titleForNav], [currentCity])
-    
+    const value = React.useMemo(() => [currentCity, setCurrentCity, titleForNav, slug], [currentCity])
+
     return (
         <CityContext.Provider
             value={value}

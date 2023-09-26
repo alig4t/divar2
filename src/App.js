@@ -4,7 +4,6 @@ import './App.css';
 import { CityProvider } from './Context/CityContext';
 import { CategoryProvider } from './Context/CategoryContext';
 import SelectCity from './Pages/SelectCity/SelectCity';
-import MakeSlug from './Pages/SelectCity/MakeSlug';
 
 function App() {
   console.log("App render");
@@ -15,8 +14,8 @@ function App() {
         <Routes>
           <Route>
              <Route path='/s/:city/:catParam?' element={<MainCore />} />
-           {/* <Route path='/v/:title/:code' element={<h1>Single PAge</h1>} /> */}
-            {/* <Route path='/' element={<MakeSlug/>} /> */}
+              <Route path='/v/:title/:code' element={<h1>Single PAge</h1>} />
+            <Route path='/' element={<SelectCity/>} />
           </Route>
         </Routes>
       </CategoryProvider>

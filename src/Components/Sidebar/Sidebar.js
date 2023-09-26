@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Categories from '../Categories/Categories';
 // import FilterSection from './FilterSection';

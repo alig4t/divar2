@@ -9,7 +9,7 @@ import { BsPerson } from 'react-icons/bs'
 import { BsChatDots } from 'react-icons/bs'
 
 // import "./NavBar.css"
-import Cities from "../Cities/Cities";
+
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { CityContext } from "../../Context/CityContext";
 import CityModal from "../Cities/CityModal";
@@ -19,7 +19,7 @@ const NavBar = () => {
     console.log("NavBar Render");
     const expand = "lg"
 
-    const [city, , titleForNav] = useContext(CityContext)
+    const [city, , titleForNav,slug] = useContext(CityContext)
 
     const [cityModalShow, setCityModalShow] = useState(false)
     const handleCityModalShow = () => setCityModalShow(true);
@@ -35,7 +35,7 @@ const NavBar = () => {
             sticky='top'
         >
 
-            <Link to='/' className='navbar-brand d-none d-md-block'>
+            <Link to={slug} className='navbar-brand d-none d-md-block'>
                 {process.env.REACT_APP_BASE_TITLE}
             </Link>
 
