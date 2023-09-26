@@ -5,10 +5,12 @@ import Placeholder from 'react-bootstrap/Placeholder';
 
 import "./CardPlaceHolder.css"
 import { Spinner } from 'react-bootstrap';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 
-const CardPlaceHolder = () => {
+const CardPlaceHolder = (props) => {
 
     // console.log(window.innerHeight);
     const catCardPlace = {
@@ -28,20 +30,43 @@ const CardPlaceHolder = () => {
         background: "#efefef",
         position: "relative"
     }
+    const imgBox2 = {
+        width: "80px",
+        height: "80px",
+        borderRadius: "5px",
+        overflow: "hidden",
+        // background: "rgba(55,57,64,0.9)",
+        background: "#efefef",
+        position: "relative"
+    }
     const cardStyle = {
         "borderRadius": "20px !important",
         "boxShadow": "none",
         "opacity": "0.3"
     }
 
-    const spinnerStyle={
-        "position":"fixed",
-        "top":"50%",
-        "left":"50%",
-        "z-index":"199"
-    }
 
-    const cardPlaceItem = (
+    const [defaulShow]=useState(props.defaulShow)
+
+    let cardPlaceItem = defaulShow ? (
+        <div className='col-12 col-lg-6 px-4 py-2 my-2 mx-auto'>
+            <div className='d-flex justify-content-between align-items-center border rounded px-2' style={{ gap: "10px" }}>
+                <div className='flex-fill py-2' >
+                    <Placeholder as={Card.Text} animation="wave">
+                        <Placeholder xs={8} className="mt-2 mb-2" />
+
+                        <Placeholder xs={10} bg='secondary' />
+                        <Placeholder xs={4} bg='secondary' />{'  '}
+                        <Placeholder xs={4} bg='secondary' />
+                        <Placeholder xs={12} size='xs' bg='secondary' className="mt-2" />
+                    </Placeholder>
+                </div>
+                <div className='' style={imgBox2}>
+
+                </div>
+            </div>
+        </div>
+    ):(
         <div className='col-sm-6 col-lg-4 p-4'>
             <Card style={cardStyle}>
                 <div style={imgBox}>
@@ -75,20 +100,12 @@ const CardPlaceHolder = () => {
 
     return (
         <>
-            {/* <Spinner animation="border" className='my-3 mx-auto' style={spinnerStyle} variant="danger" /> */}
-
-            {/* {Array.apply(null, {length: 6 }).map((e, i) => (
-            cardPlaceItem
-            ))} */}
-
             {cardPlaceItem}
             {cardPlaceItem}
             {cardPlaceItem}
             {cardPlaceItem}
             {cardPlaceItem}
             {cardPlaceItem}
-
-
         </>
     );
 }

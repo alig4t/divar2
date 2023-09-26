@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import ActionNav from "../NavBar/ActionNav";
+import BottomNavbar from "../NavBar/BottomNavbar";
 
 const Layout = (props) => {
     console.log("Layout Render");
@@ -12,6 +13,7 @@ const Layout = (props) => {
             <NavBar />
             <ActionNav />
             {props.children}
+            <BottomNavbar />
         </>
     );
 }

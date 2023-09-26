@@ -58,7 +58,7 @@ const Cards = () => {
 
         <div className='row'>
 
-            {isLoading ? <CardPlaceHolder /> : data !== undefined ? <>
+            {isLoading ? <CardPlaceHolder defaulShow={defaultShowTypeUi} /> : data !== undefined ? <>
                 <SwitchShow changeDefaultShow={setDefaultShowTypeUi} defaultShow={defaultShowTypeUi} />
                 {
                     defaultShowTypeUi ? <CardShow2 cardsList={data} /> : <CardShow1 cardsList={data} />

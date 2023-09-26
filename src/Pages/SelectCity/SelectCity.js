@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Badge, Container, Dropdown, Form, Row } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+// import { Badge, Container, Dropdown, Form, Row } from 'react-bootstrap';
 import "./style.css"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CityList from "../../JsonFiles/Cities.json"
-import Provinces from "../../JsonFiles/Provinces.json"
-import WrongUrlMsg from '../../Components/UI/WrongUrlMsg/WrongUrlMsg';
+// import Provinces from "../../JsonFiles/Provinces.json"
+// import WrongUrlMsg from '../../Components/UI/WrongUrlMsg/WrongUrlMsg';
 
 const SelectCity = () => {
 
 
     const navigate = useNavigate()
-    const location = useLocation()
-    const states = CityList.filter((city) => city.parent !== 0)
+    // const location = useLocation()
+    // const states = CityList.filter((city) => city.parent !== 0)
 
     useEffect(()=>{
         navigate('/s/tehran',{replace:true})
@@ -54,42 +54,40 @@ const SelectCity = () => {
 
 
 
-    return (
-        <Container className='py-4' fluid>
-            <Row>
-                <div className='col-md-6 m-auto'>
-                    <div>
-                        <Form.Control type="text" value={inputSearch} placeholder='جستجوی شهر' onChange={(e) => filterCityListHandler(e.target.value)} />
+    // return (
+    //     // <Container className='py-4' fluid>
+    //     //     <Row>
+    //     //         <div className='col-md-6 m-auto'>
+    //     //             <div>
+    //     //                 <Form.Control type="text" value={inputSearch} placeholder='جستجوی شهر' onChange={(e) => filterCityListHandler(e.target.value)} />
 
-                        <Dropdown show={inputSearch.length > 0} className='dv-filter-dropdown search' drop='down-centered'>
-                            <Dropdown.Menu>
-                                {suggestList.map((item, index) => {
-                                    return <Dropdown.Item key={index}><Link to={`/s/${item.slug}`} state={{wrong:false}} >{item.title}</Link></Dropdown.Item>
-                                })}
+    //     //                 <Dropdown show={inputSearch.length > 0} className='dv-filter-dropdown search' drop='down-centered'>
+    //     //                     <Dropdown.Menu>
+    //     //                         {suggestList.map((item, index) => {
+    //     //                             return <Dropdown.Item key={index}><Link to={`/s/${item.slug}`} state={{wrong:false}} >{item.title}</Link></Dropdown.Item>
+    //     //                         })}
 
-                                {/* <Dropdown.Divider /> */}
+    //     //                         {/* <Dropdown.Divider /> */}
 
-                            </Dropdown.Menu>
-                        </Dropdown>
+    //     //                     </Dropdown.Menu>
+    //     //                 </Dropdown>
 
-                    </div>
+    //     //             </div>
 
-                    <div>
-                        <h1 className='pt-5 pb-2 select-city-header'>شهر های پر بازدید</h1>
-                        <div className='list-city d-flex flex-rox flex-wrap justify-content-between'>
-                            {topCities.map((city) => {
-                                return <Link key={city.id} to={`/s/${city.slug}`}>
-                                   <Badge bg='Warning' text="dark">
-                                    {city.title}
-                                   </Badge>
-                                    </Link>
+    //     //             <div>
+    //     //                 <h1 className='pt-5 pb-2 select-city-header'>شهر های پر بازدید</h1>
+    //     //                 <div className='list-city d-flex flex-rox flex-wrap justify-content-between'>
+    //     //                     {topCities.map((city) => {
+    //     //                         return <Link key={city.id} to={`/s/${city.slug}`}>
+    //     //                            <Badge bg='Warning' text="dark">
+    //     //                             {city.title}
+    //     //                            </Badge>
+    //     //                             </Link>
 
-                            })}
+    //     //                     })}
 
-                        </div>
-                    </div>
-
-
+    //     //                 </div>
+    //     //             </div>
 
 
 
@@ -97,13 +95,15 @@ const SelectCity = () => {
 
 
 
-                </div>
-            </Row>
-            <Row>
-                {location.state !== null ? location.state.wrong ? <WrongUrlMsg currentCity="" /> : "" :""}
-            </Row>
-        </Container>
-    );
+
+
+    //     //         </div>
+    //     //     </Row>
+    //     //     <Row>
+    //     //         {location.state !== null ? location.state.wrong ? <WrongUrlMsg currentCity="" /> : "" :""}
+    //     //     </Row>
+    //     // </Container>
+    // );
 }
 
 export default SelectCity;

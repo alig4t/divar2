@@ -1265,6 +1265,7 @@ p {
     margin-bottom: 10px;
   }
 
+
   .dv-post {
     /* padding: 12px 4px; */
     gap: 2px;
@@ -1282,6 +1283,11 @@ p {
     top: 0;
     margin: auto;
   }
+  .dv-card-border {
+    border: none !important;
+    border-bottom: 1px solid #ededed !important;
+    border-radius: 0 !important;
+  }
 
 }
 
@@ -1292,7 +1298,11 @@ p {
     padding: 0;
     margin-bottom: 10px;
   }
-
+  .dv-card-border {
+    border: none !important;
+    border-bottom: 1px solid #ededed !important;
+    border-radius: 0 !important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -1301,6 +1311,11 @@ p {
     max-width: 100%;
     padding: 0;
     margin-bottom: 10px;
+  }
+  .dv-card-border {
+    border: none !important;
+    border-bottom: 1px solid #ededed !important;
+    border-radius: 0 !important;
   }
 }
 

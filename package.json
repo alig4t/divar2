@@ -1,6 +1,6 @@
 {
   "name": "divar2",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^4.35.3",
