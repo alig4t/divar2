@@ -1,14 +1,28 @@
 import CatList from '../JsonFiles/catlist.json'
+import CityList from "../JsonFiles/Cities.json"
+
 
 export const isCatSlugValid = (slug) => {
 
-    if (slug === undefined || slug === '') return [true,'']
+    if (slug === undefined || slug === '') return [true, '']
     let catObj = CatList.find((cat) => {
         return cat.slug === slug
     })
     if (catObj == undefined) return [false, '']
     return [true, catObj.slug]
 }
+
+export const isValidCity = (slug) => {
+    let singleCityObj = CityList.find((item) => item.slug === slug)
+    if (singleCityObj == undefined) return false
+    return true
+}
+
+export const isValidCities = () => {
+    
+}
+
+
 
 export const URLMaker = (city = [], cat, filters = {}) => {
 

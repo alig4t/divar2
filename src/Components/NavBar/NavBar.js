@@ -12,6 +12,7 @@ import { BsChatDots } from 'react-icons/bs'
 import Cities from "../Cities/Cities";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { CityContext } from "../../Context/CityContext";
+import CityModal from "../Cities/CityModal";
 
 const NavBar = () => {
 
@@ -94,8 +95,8 @@ const NavBar = () => {
                 </Offcanvas.Body>
             </Navbar.Offcanvas>
 
-            <Cities show={cityModalShow} close={handleCityModalClose} />
-          
+            {/* <Cities show={cityModalShow} close={handleCityModalClose} /> */}
+            <CityModal show={cityModalShow} close={handleCityModalClose}  />
         </Navbar>
     );
 }

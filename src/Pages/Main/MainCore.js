@@ -4,6 +4,7 @@ import React from 'react';
 import Main from './Main';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+
 const MainCore = () => {
     console.log("MainCore Render..");
 

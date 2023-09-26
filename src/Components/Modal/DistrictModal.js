@@ -206,12 +206,20 @@ const DistrictModal = (props) => {
 
           {
             districtsShow.map((item) => {
-              return <ListGroup.Item key={item.id} onClick={() => checkDistrictHandler(item.id, item.title)}
+              return <ListGroup.Item className='d-flex justify-content-between' key={item.id} onClick={() => checkDistrictHandler(item.id, item.title)}
               >
                 {item.title}
-                <span className='dv-arrow'>
-                  {item.checked ? <RiCheckboxFill /> : <BiCheckbox />}
-                </span>
+                {/* <span className='dv-arrow'> */}
+                {/* {item.checked ? <RiCheckboxFill /> : <BiCheckbox />} */}
+
+                <input class="form-check-input"
+                  type="checkbox"
+                  id={`checkboxNoLabel-${item.id}`}
+                  readOnly
+                  checked={item.checked ? true : false}
+                />
+
+                {/* </span> */}
               </ListGroup.Item>
             })
           }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Categories from '../Categories/Categories';
-import FilterSection from './FilterSection';
+// import FilterSection from './FilterSection';
 
 const Sidebar = () => {
     console.log("sidebar");
@@ -9,7 +9,7 @@ const Sidebar = () => {
     <div className='my-sticky-sidebar'>
         {/* <Categories devicePhone={false} /> */}
         <Categories />
-        <FilterSection />
+        {/* <FilterSection /> */}
     </div>
 
 )}

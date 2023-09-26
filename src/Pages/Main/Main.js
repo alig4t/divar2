@@ -3,7 +3,8 @@ import Layout from "../../Components/Layout/Layout";
 import { Button, Container, Row } from "react-bootstrap";
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { CityContext } from "../../Context/CityContext";
-import CityList from "../../Components/Cities/Cities.json"
+// import CityList from "../../Components/Cities/Cities.json"
+import CityList from "../../JsonFiles/Cities.json"
 import CatList from "../../JsonFiles/catlist.json"
 import { URLMakerWithHash, isCatSlugValid } from "../../Helper/Helper";
 import Sidebar from "../../Components/Sidebar/Sidebar";
@@ -19,6 +20,9 @@ const Main = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const [queryStirng] = useSearchParams();
+
+    const cityParam = queryStirng.get("cities")
+    console.log(cityParam);
     let { city, catParam } = useParams()
 
 
@@ -98,7 +102,10 @@ const Main = () => {
         }
 
 
-    }, [location])
+    }, [city,cityParam])
+
+    
+
 
 
     return (
@@ -124,9 +131,9 @@ const Main = () => {
             </Layout>
 
             <Button className="mt-5" style={{ float: "left" }} onClick={() => setRen(ren + 1)} type='button' variant='danger' >Rerender {ren}</Button>
-            <Link to="/s/tehran/wwwwww" style={{ float: "left" }} >cat</Link>{' '}
+            <Link to="/s/iran/real-estate?cities=225%2xC64" style={{ float: "left" }} >cat</Link>{' '}
             <Link to="/s/tehran/" style={{ float: "left" }} >right link</Link>{' '}
-            <Link to="/s/tehran/real-estate" style={{ float: "left" }} >right link</Link>{' '}
+            <Link to="/s/tehrasn/real-estate" style={{ float: "left" }} >right link</Link>{' '}
         </>
     );
 }
