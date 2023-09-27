@@ -7,11 +7,10 @@ const Layout = (props) => {
     console.log("Layout Render");
     const [width, setWidth] = useState(window.innerWidth)
     return (
-
         <>
-
             <NavBar />
             <ActionNav />
+            
             {props.children}
             <BottomNavbar />
         </>

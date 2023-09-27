@@ -31,7 +31,7 @@ const NavBar = () => {
             key={expand}
             bg="light"
             expand={expand}
-            className="dv-nav mb-3"
+            className="dv-nav mb-md-1"
             sticky='top'
         >
 

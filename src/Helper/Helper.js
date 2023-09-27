@@ -22,7 +22,9 @@ export const isValidCities = () => {
     
 }
 
-
+export const getAllParentCats = () => {
+    return CatList.filter(cat=>cat.parent===0)
+}
 
 export const URLMaker = (city = [], cat, filters = {}) => {
 

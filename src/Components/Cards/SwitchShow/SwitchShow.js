@@ -18,7 +18,7 @@ const SwitchShow = (props) => {
     }
     
     return (
-        <div className='col-12 justify-content-left px-3 pt-3'>
+        <div className='col-12 justify-content-left py-1 px-2 py-md-3'>
             <div className={styles.showstatus} onClick={showTypeHandler}>
                 {/* <p className='align-self-center mx-2'>تغییر حالت نمایش</p> */}
                 <span className='align-self-center'>

@@ -12,6 +12,7 @@ import ModalCategories from '../Categories/ModalCategories';
 import { URLMaker } from '../../Helper/Helper';
 import FilterModal from '../Sidebar/FilterModal';
 import { CategoryContext } from '../../Context/CategoryContext';
+import UpperCards from './UpperCards';
 
 // import "./ActionNav.css"
 
@@ -55,46 +56,51 @@ const ActionNav = () => {
 
     return (
         <>
-            <Container fluid className="d-md-none dv-actionnav-container sticky-top pt-3 pb-2">
-                <Row>
-                    <div className="col-12 dv-action-nav">
-                        <Badge onClick={filterModalHandler} className={`dv-action-badge ${hasFilter ? "active" : ""}`} bg="" style={{ paddingLeft: "15px" }}>
-                            فیلترها
-                        </Badge>
+            {currentCat.id > 0 ? (
+                <Container fluid className="d-md-none dv-actionnav-container sticky-top pt-3 pb-2">
+                    <Row>
+                        <div className="col-12 dv-action-nav">
+                            <Badge onClick={filterModalHandler} className={`dv-action-badge ${hasFilter ? "active" : ""}`} bg="" style={{ paddingLeft: "15px" }}>
+                                فیلترها
+                            </Badge>
 
 
-                        {currentCat.id > 0 ? <Badge className="dv-action-badge active" bg="">
-                            <span onClick={categoryModalHandler}>
-                                {currentCat.title}
-                            </span>
+                            {currentCat.id > 0 ? <Badge className="dv-action-badge active" bg="">
+                                <span onClick={categoryModalHandler}>
+                                    {currentCat.title}
+                                </span>
 
-                            <span className="dv-deleteFilter">
-                                <Link to={URLMaker(currentCity.citiesList, '')}>
-                                    <IoIosClose />
-                                </Link>
-                            </span>
+                                <span className="dv-deleteFilter">
+                                    <Link to={URLMaker(currentCity.citiesList, '')}>
+                                        <IoIosClose />
+                                    </Link>
+                                </span>
 
-                        </Badge>
-                            : (<>
-                                <Badge onClick={categoryModalHandler} className="dv-action-badge" bg="">
-                                    دسته ها
-                                </Badge>
-                                {allcat.map((cat) => <Link key={cat.id} to={URLMaker(currentCity.citiesList, cat.slug)}>
-                                    <Badge className="dv-action-badge" bg="">
-                                        {cat.title}
+                            </Badge>
+                                : (<>
+                                    <Badge onClick={categoryModalHandler} className="dv-action-badge" bg="">
+                                        دسته ها
                                     </Badge>
-                                </Link>)}
-                            </>
+                                    {allcat.map((cat) => <Link key={cat.id} to={URLMaker(currentCity.citiesList, cat.slug)}>
+                                        <Badge className="dv-action-badge" bg="">
+                                            {cat.title}
+                                        </Badge>
+                                    </Link>)}
+                                </>
 
-                            )
+                                )
 
-                        }
+                            }
 
 
 
-                    </div>
-                </Row>
-            </Container>
+                        </div>
+                    </Row>
+                </Container>
+            ) : (
+                <UpperCards />   
+            )
+            }
             <FilterModal showModal={filterModal} devicePhone={true} closeModal={() => setFilterModal(false)} />
 
             <ModalCategories showModal={categoryModal} closeModal={closeCategoryModal} />
