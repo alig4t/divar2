@@ -9,12 +9,9 @@ import { CityContext } from '../../Context/CityContext';
 
 const DeviceCategories = (props) => {
 
-    console.log("DeviceCategories");
     const navigate = useNavigate()
 
-    // const [currentCat, setCurrentCat] = useContext(CategoryContext)
     const [currentCity, setCurrentCity, titleForNav] = useContext(CityContext)
-
     const [showList, setShowList] = useState({ depth: 0, sub: [], parent: [] })
 
     const showSubCats = (id, slug) => {
@@ -33,24 +30,18 @@ const DeviceCategories = (props) => {
     }
 
     useEffect(() => {
-
         let originalCats = catList.filter((item) => item.parent == 0)
         setShowList({
             depth: 0,
             sub: originalCats,
             parent: []
         })
-
     }, [])
 
     const navigateCategory = (slug) => {
-        console.log('ssss');
         navigate(URLMaker(currentCity.citiesList, slug));
-        // setCatAndFiltersHanler(slug)
         props.closeModal()
     }
-
-
 
     return (
         <ListGroup>
@@ -76,8 +67,6 @@ const DeviceCategories = (props) => {
                 )
             })
             }
-
-
 
             {
                 (showList.parent.length > 0) ? (

@@ -1,14 +1,11 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React,{useState,useEffect} from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { Collapse, Form, ListGroup } from 'react-bootstrap';
 import { FiChevronDown } from "react-icons/fi"
 import { FiChevronUp } from "react-icons/fi"
-import { useParams, useSearchParams } from 'react-router-dom';
 
 const StatusFilter = (props) => {
-
-    console.log("status component");
 
     const [statusOpen, setStatusOpen] = useState(false);
     const [switchFilters, setSwitchFilters] = useState({ "hasSwitchOn": false, "list": {} })
@@ -16,13 +13,7 @@ const StatusFilter = (props) => {
     const [queryStirng, setQueryStirng] = useSearchParams();
 
 
-    const regexHasPhotoOrUrgent = /^(has-photo|urgent)=((true)|(false))(&(has-photo|urgent)=((true)|(false)))*$/g;
-
-
-
-
     const urlMakerWithStatus = (slug) => {
-
         setQueryStirng(params => {
             if (params.has(slug)) {
                 let state = params.get(slug);
@@ -35,7 +26,6 @@ const StatusFilter = (props) => {
             params.set(slug, true)
             return params
         })
-
     }
 
     const urlMakerStatusClear = (items) => {
@@ -53,26 +43,21 @@ const StatusFilter = (props) => {
         urlMakerStatusClear(props.itemsList)
     }
     useEffect(() => {
-        console.log("کامپوننت استاتوس");
-
         let switchObject = {}
         switchObject["hasSwitchOn"] = false
         switchObject["list"] = {}
 
         props.itemsList.forEach(element => {
             let switchOn = false
-            // console.log(element.slug);
             if (queryStirng.has(element.slug) && queryStirng.get(element.slug) === "true") {
                 switchOn = true
                 switchObject["hasSwitchOn"] = true
             }
             switchObject["list"][element.enTitle] = switchOn
         });
-        // console.log(switchObject);
         setSwitchFilters(switchObject)
 
     }, [queryStirng])
-    // }, [queryStirng, cat, city])
 
 
     return (

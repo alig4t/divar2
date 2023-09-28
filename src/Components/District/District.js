@@ -13,10 +13,6 @@ const District = () => {
         setDistricts(mahaleList)
     }, [])
 
-    useEffect(() => {
-        console.log(districts);
-    })
-
     return (
         <div className='dv-sidebox'>
             <ListGroup>

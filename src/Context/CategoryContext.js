@@ -1,5 +1,5 @@
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import CatList from "./../JsonFiles/catlist.json"
 import AllFilters from "./../JsonFiles/AllFilters.json"
 import DefaultFilters from "./../JsonFiles/DefaultFilters.json"
@@ -9,8 +9,6 @@ import DefaultFilters2 from "./../JsonFiles/DefaultFilters2.json"
 export const CategoryContext = React.createContext()
 
 export const CategoryProvider = (props) => {
-
-    console.log("CategoryProviderrrrrrr");
 
     const [currentCat, setCurrentCat] = useState({ id: -1, slug: "", filters: [...DefaultFilters, ...DefaultFilters2] });
 
@@ -33,7 +31,6 @@ export const CategoryProvider = (props) => {
         let [isValid, catObj] = isCatSlugValid(slug)
 
         if (catObj.id > 0) {
-            console.log("id>0");
 
             let filtersCat = AllFilters.filter((fil) => {
                 return fil.catId.includes(catObj.id)
@@ -46,17 +43,11 @@ export const CategoryProvider = (props) => {
             }
             setCurrentCat({ ...catObj, filters: newFilterArray })
         } else {
-            console.log("id===0");
-            console.log(currentCat.id);
-            setDefaultCat()
-           
-            
+            setDefaultCat()     
         }
-
 
     }
   
-
 
     const value = useMemo(() => ([currentCat, setCatAndFiltersHanler]), [currentCat]);
 

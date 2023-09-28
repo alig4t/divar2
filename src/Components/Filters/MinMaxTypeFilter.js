@@ -1,21 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Collapse, ListGroup, Form, Dropdown, Fade } from 'react-bootstrap';
 import { FiChevronDown } from "react-icons/fi"
 import { FiChevronUp } from "react-icons/fi"
 import { RxDotsVertical } from "react-icons/rx"
 import { TiDelete } from "react-icons/ti"
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 
 
 const MinMaxTypeFilter = (props) => {
-
-    const naviate = useNavigate()
-    // const currentCity = useContext(CityContext)
-    // const currentCat = useContext(CategoryContext)
-    // let { city, cat } = useParams()
-
-    console.log("MinMaxTypeFilter Render..");
 
 
     const [filterOpen, setFilterOpen] = useState(false);
@@ -88,7 +81,6 @@ const MinMaxTypeFilter = (props) => {
 
     useEffect(() => {
 
-        console.log("کامپوننت مین ماکس");
         if (queryStirng.has(props.slug)) {
             if (regexMinMaxUrl.test(queryStirng.get(props.slug))) {
                 let filterArray = queryStirng.get(props.slug).split("-");
@@ -96,27 +88,15 @@ const MinMaxTypeFilter = (props) => {
                 let maxFilterUrl = filterArray[1];
                 changeMinHandler(minFilterUrl);
                 changeMaxHandler(maxFilterUrl);
-            } else {
-                // console.log("قیمت نامعبتر است..");
             }
-
         } else {
             setMinFilter("")
             setMaxFilter("")
         }
 
-        //^-?(\d+)-?$
-        //^((-\d+)|(\d+\-)|(\d+\-\d+))$
 
     }, [filterParam])
-    // }, [filterParam,cat,city])
 
-
-    // useEffect(()=>{
-    //     console.log('cat ...');
-    //     changeMinHandler('');
-    //     changeMaxHandler('');
-    // },[cat,city])
 
 
 
@@ -125,24 +105,16 @@ const MinMaxTypeFilter = (props) => {
 
         let value = event.target.getAttribute('data-val');
         let formatValue = props.isPrice ? format(value) : value;
-        // setMinFilter(formatValue)
         setSuggestionMinFilter(false)
-        // console.log(["min:",value]);
         urlMakerWithMinMaxFilter(props.slug, value, "min")
-        // inputMinFilter.current.focus()
     }
 
     const chooseMaxFilter = (event) => {
         event.preventDefault();
-
         let value = event.target.getAttribute('data-val');
         let formatValue = props.isPrice ? format(value) : value;
-        // setMaxFilter(formatValue)
         setSuggestionMaxFilter(false)
-        // inputMaxFilter.current.focus()
-        // console.log(["max:",value]);
         urlMakerWithMinMaxFilter(props.slug, value, "max")
-
     }
 
     function format(input) {
@@ -217,19 +189,14 @@ const MinMaxTypeFilter = (props) => {
 
     const onClickMinDiv = () => {
         inputMinFilter.current.focus()
-        // console.log(window.innerHeight);
-        // console.log(window.pageYOffset);
-        // console.log(inputMinFilter.current.getBoundingClientRect().bottom);
         let divRect = inputMinFilter.current.getBoundingClientRect().bottom;
         let bottomOffset = window.innerHeight - divRect
-        // console.log(bottomOffset);
         if (bottomOffset < 200) {
             setMinDropOpenTop(true)
         } else {
             setMinDropOpenTop(false)
         }
         setSuggestionMinFilter(true)
-
     }
 
     const clearMinHandler = () => {
@@ -245,8 +212,6 @@ const MinMaxTypeFilter = (props) => {
     }
 
     return (
-
-
         <div className='dv-sidebox'>
             <ListGroup className='dv-filter-header' aria-controls="choose-Filter-box">
                 <div className='d-flex flex-row flex-fill' onClick={() => setFilterOpen(!filterOpen)}>

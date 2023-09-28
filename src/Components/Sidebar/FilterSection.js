@@ -8,34 +8,20 @@ import CheckboxFilter from '../Filters/CheckboxFilter';
 import RadioBoxFilter from '../Filters/RadioBoxFilter';
 
 import { CityContext } from '../../Context/CityContext';
-
 import { CategoryContext } from '../../Context/CategoryContext';
 
 const FilterSection = () => {
 
-    console.log("filterSection Render");
 
-
-    const [currentCity, setCurrentCity ] = useContext(CityContext)
-    const [currentCat, setCurrentCat] = useContext(CategoryContext)
-
-    console.log(currentCity);
-    console.log(currentCat);
-
-
-    // useEffect(()=>{
-        
-    // },[catParam])
-
-
+    // const [currentCity ] = useContext(CityContext)
+    const [currentCat] = useContext(CategoryContext)
 
 
 
 
     const filterComponents = () => {
-        return currentCat?.filters?.map((fil) => {
+        return currentCat?.filters?.map((fil,index) => {
             let ComponentFilter = fil.type
-            console.log("filter map");
             switch (fil.type) {
                 case "MinMaxTypeFilter":
                     return <MinMaxTypeFilter

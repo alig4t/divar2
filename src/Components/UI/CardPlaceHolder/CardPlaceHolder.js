@@ -1,18 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 
 import "./CardPlaceHolder.css"
-import { Spinner } from 'react-bootstrap';
-import { useEffect } from 'react';
-import { useState } from 'react';
-
-
 
 const CardPlaceHolder = (props) => {
 
-    // console.log(window.innerHeight);
     const catCardPlace = {
         position: "absolute",
         top: "8px",

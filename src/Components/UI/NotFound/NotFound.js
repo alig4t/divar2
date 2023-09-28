@@ -9,16 +9,18 @@ import classes from "./NotFound.module.css"
 import { useEffect, useState } from 'react';
 
 const NotFound = (props) => {
-    console.log("NotFound Render..");    
-    
+
     /*************************** Show Message State (True/False) ***************************/
     const [activeClass, setActiveClass] = useState(false)
-    
+
     /*************************** Message Box Style ***************************/
     const msgBox = {
         position: "fixed",
         bottom: "80px",
-        textAlign: "center"
+        textAlign: "center",
+        "right": 0,
+        "left": 0,
+        "margin": "auto"
     }
     const msgStyle = {
         backgroundColor: "#2d3436",
@@ -48,7 +50,7 @@ const NotFound = (props) => {
         <>
 
             <Row>
-                <div className='col-8 m-auto text-center'>
+                <div className='col-8 m-auto text-center pb-2'>
                     <img className={classes.img} src={process.env.PUBLIC_URL + "/assets/template/page-not-found2.png"} />
                     <h2 className={classes.nottitle}>
                         به نظر آدرس را اشتباه وارد کرده‌اید.
@@ -59,19 +61,23 @@ const NotFound = (props) => {
                         بزنید.
                     </h4>
                 </div>
-                
+
 
             </Row>
-            <Fade
-                in={activeClass}
-                timeout={300}
-            >
-                <div className='w-100' style={msgBox} onClick={() => setActiveClass(false)}>
-                    <span style={msgStyle}>
-                        {props.msg}
-                    </span>
+            <Row>
+                <div className='col-12'>
+                    <Fade
+                        in={activeClass}
+                        timeout={300}
+                    >
+                        <div className='w-100' style={msgBox} onClick={() => setActiveClass(false)}>
+                            <span style={msgStyle}>
+                                {props.msg}
+                            </span>
+                        </div>
+                    </Fade>
                 </div>
-            </Fade>
+            </Row>
         </>
     );
 }

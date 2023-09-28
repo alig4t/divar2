@@ -16,29 +16,17 @@ import { useParams, useSearchParams } from 'react-router-dom';
 
 const DistrictModal = (props) => {
 
-  console.log("DistrictModal");
 
   const [districtsShow, setDistrictsShow] = useState([])
   const [AllDistricts, setAllDistricts] = useState([])
-  // const [prevSelected] = useState(((props.currentDistricts).sort()).join(""))
 
   const [selectedDistricts, setSelectedDistricts] = useState([])
   const [clickableBtn, setClickableBtn] = useState(false);
 
-  // console.log(city);
 
-  // const city = 113;
-
-  useEffect(() => {
-    // console.log(AllDistricts);
-    // console.log(selectedDistricts);
-    // console.log(districtsShow);
-    // console.log("مودال محه");
-  })
 
 
   const navigateUrl = () => {
-    // console.log(selectedDistricts);
     let ids = [];
     selectedDistricts.forEach((mahal) => {
       ids.push(mahal.id);
@@ -49,18 +37,7 @@ const DistrictModal = (props) => {
 
 
   useEffect(() => {
-    // console.log("districtValue");
     if (props.showModal) {
-
-
-      // console.log(props.currentDistricts);
-      // let mahaleList = distJson.filter((mahal) => {
-      //   return mahal.city === 113
-      // })
-      // mahaleList = mahaleList.map((item) => {
-      //   let checekdStatus = props.currentDistricts.includes(item.id) ? true : false
-      //   return { ...item, "checked": false }
-      // })
 
       let mahaleList = props.itemsList.map((item) => {
         let checekdStatus = props.currentDistricts.includes(item.id) ? true : false
@@ -76,7 +53,6 @@ const DistrictModal = (props) => {
         selectMahalBadgeArray.push({ id: mahaleList[index].id, title: mahaleList[index].title })
       })
 
-      // console.log(mahaleList);
       setDistrictsShow(mahaleList)
       setAllDistricts(mahaleList)
       setSelectedDistricts(selectMahalBadgeArray)
@@ -84,7 +60,6 @@ const DistrictModal = (props) => {
   }, [props.showModal])
 
   useEffect(() => {
-    // console.log(selectedDistricts);
     let ids = [];
     selectedDistricts.forEach((mahal) => {
       ids.push(mahal.id);
@@ -125,7 +100,6 @@ const DistrictModal = (props) => {
           return item
         }
       })
-      // console.log(filteredCities);
       setDistrictsShow(filteredMahal)
 
     } else {
@@ -146,7 +120,6 @@ const DistrictModal = (props) => {
     } else {
       dupDist[index].checked = false
     }
-    // setDistrictsShow(dupDist)
 
 
     let checkedDist = [...selectedDistricts]
@@ -211,13 +184,14 @@ const DistrictModal = (props) => {
                 {item.title}
                 {/* <span className='dv-arrow'> */}
                 {/* {item.checked ? <RiCheckboxFill /> : <BiCheckbox />} */}
-
-                <input class="form-check-input"
-                  type="checkbox"
-                  id={`checkboxNoLabel-${item.id}`}
-                  readOnly
-                  checked={item.checked ? true : false}
-                />
+                <div className='modal-input-div'>
+                  <input className="form-check-input"
+                    type="checkbox"
+                    id={`checkboxNoLabel-${item.id}`}
+                    readOnly
+                    checked={item.checked ? true : false}
+                  />
+                </div>
 
                 {/* </span> */}
               </ListGroup.Item>
@@ -237,4 +211,4 @@ const DistrictModal = (props) => {
   );
 }
 
-export default React.memo(DistrictModal);
+export default DistrictModal;

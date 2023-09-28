@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Collapse, ListGroup } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
+
+import { Collapse, ListGroup } from 'react-bootstrap';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { useParams, useSearchParams } from 'react-router-dom';
 
 const CheckboxFilter = (props) => {
 
-    console.log("CheckboxFilter Render..");
     const [checkBoxOpen, setCheckBoxOpen] = useState(false)
     const [checkBoxList, setCheckBoxList] = useState([])
 
@@ -67,8 +67,6 @@ const CheckboxFilter = (props) => {
     }
 
     useEffect(() => {
-        console.log("کامپوننت چکباکس");
-
         if (queryStirng.has(props.slug)) {
             let urlValStr = queryStirng.get(props.slug)
             if (regexUrl.test(urlValStr)) {

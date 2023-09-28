@@ -3,9 +3,6 @@ import { Fade } from 'react-bootstrap';
 
 const WrongUrlMsg = ({ currentCity }) => {
 
-    console.log("WrongUrlMsg Render..");
-
-
     /*************************** Show Message State (True/False) ***************************/
     const [activeClass, setActiveClass] = useState(false)
     

@@ -1,5 +1,4 @@
 import React from 'react';
-// import SingleCard from './SingleCard';
 import { FaRegComment } from 'react-icons/fa'
 
 import Ads from "./ads.json"
@@ -17,10 +16,8 @@ const Cards = () => {
                                             <h2>{item.title}</h2>
                                         </div>
                                         <div className='dv-info-lists'>
-                                            {/* <p>در حد نو</p> */}
-                                            {/* <p>۳۵٬۰۰۰٬۰۰۰ تومان</p>
-                            <p>۳۵٬۰۰۰٬۰۰۰ تومان</p> */}
-                                            {item.features.map((feature,index) => {
+
+                                            {item.features.map((feature, index) => {
                                                 return (
                                                     <p key={index}>
                                                         {feature.title + " : " + feature.value + " تومان "}
@@ -45,22 +42,7 @@ const Cards = () => {
                     )
                 })
             }
-            {/* <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard />
-            <SingleCard /> */}
+
         </div>
     );
 }

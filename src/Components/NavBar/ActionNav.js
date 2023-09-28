@@ -1,31 +1,26 @@
-import React, { useCallback } from 'react';
-
-import { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
+import React, { useCallback,useContext, useEffect, useState  } from 'react';
+import { Link, useSearchParams } from "react-router-dom";
 
 import { Badge, Container, Row } from "react-bootstrap";
-
 import { IoIosClose } from 'react-icons/io'
+
 import { CityContext } from "../../Context/CityContext";
+import { CategoryContext } from '../../Context/CategoryContext';
 
 import ModalCategories from '../Categories/ModalCategories';
-import { URLMaker } from '../../Helper/Helper';
 import FilterModal from '../Sidebar/FilterModal';
-import { CategoryContext } from '../../Context/CategoryContext';
 import UpperCards from './UpperCards';
+import { URLMaker } from '../../Helper/Helper';
 
 // import "./ActionNav.css"
 
 const ActionNav = () => {
-
-    console.log("Action Nav");
 
     const [currentCity] = useContext(CityContext)
     const [currentCat] = useContext(CategoryContext)
     const [queryString] = useSearchParams()
 
     const allcat = []
-    const location = useLocation()
 
     const [hasFilter, setHasFilter] = useState(false)
 

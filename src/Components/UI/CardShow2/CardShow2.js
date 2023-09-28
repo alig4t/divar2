@@ -20,9 +20,6 @@ const CardShow2 = (props) => {
                                                 <h2>{item.title}</h2>
                                             </div>
                                             <div className='dv-info-lists'>
-                                                {/* <p>در حد نو</p> */}
-                                                {/* <p>۳۵٬۰۰۰٬۰۰۰ تومان</p>
-                            <p>۳۵٬۰۰۰٬۰۰۰ تومان</p> */}
                                                 {item.features.map((feature, subIndex) => {
                                                     return (
                                                         <p key={subIndex}>

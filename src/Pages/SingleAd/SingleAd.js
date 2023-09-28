@@ -1,5 +1,5 @@
 import { Breadcrumb, Button, Container, Row } from "react-bootstrap";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../Components/Layout/Layout";
 import { BsBookmark, BsShare } from "react-icons/bs";
 
 import ImageGallery from "react-image-gallery";

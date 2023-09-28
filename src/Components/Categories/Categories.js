@@ -7,15 +7,12 @@ import { HiOutlineArrowRight } from 'react-icons/hi';
 import { CityContext } from '../../Context/CityContext';
 import { CategoryContext } from '../../Context/CategoryContext';
 
-// import "./Categories.css"
 
 const Categories = () => {
 
-    console.log("Categories SideBar Render...");
 
     const [currentCat] = useContext(CategoryContext)
     const [currentCity] = useContext(CityContext)
-
     const [parentCats] = useState(catList.filter((item) => item.parent == 0))
 
     const [catShow, setCatShow] = useState({
@@ -53,10 +50,8 @@ const Categories = () => {
         });
 
         if (depth === 3) {
-            // console.log(parentList);
             subCats = catList.filter((item) => item.parent == catObj.parent)
             parentList.splice(0, 1)
-            // console.log(parentList);
         }
 
         setCatShow({
@@ -80,9 +75,6 @@ const Categories = () => {
     }, [currentCat])
 
 
-
-
-
     return (
         <div className='dv-sidebox'>
             <h6>دسته ها</h6>
@@ -90,12 +82,10 @@ const Categories = () => {
                 {catShow.depth > 0 ? (
                     <>
                         <ListGroup.Item className='dv-catlist border-0'>
-
                             <Link to={URLMaker(currentCity.citiesList, '')}>
                                 <span style={{ verticalAlign: "-2px" }}><HiOutlineArrowRight /></span>
                                 همه آگهی ها
                             </Link>
-
                         </ListGroup.Item>
                         {
                             catShow.parent.map((parent, key) => {
@@ -107,7 +97,6 @@ const Categories = () => {
                                             {parent.title}
                                         </ListGroup.Item>
                                     </Link>
-
                                 )
                             })
                         }
@@ -119,7 +108,7 @@ const Categories = () => {
                         return (
                             <ListGroup.Item key={cat.id} className={`dv-catlist border-0 ${catShow.depth > 1 ? "cat-depth3" : ""} `}>
                                 <Link to={URLMaker(currentCity.citiesList, cat.slug)}
-                                    className={cat.slug == currentCat.slug ? 'active' : 'sss'}>
+                                    className={cat.slug == currentCat.slug ? 'active' : ''}>
                                     {
                                         catShow.depth > 0 ? null : <span><img width="18px" src={process.env.PUBLIC_URL + '/assets/icons/' + cat.icon} /></span>
                                     }

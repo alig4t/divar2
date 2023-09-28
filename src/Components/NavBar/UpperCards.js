@@ -1,15 +1,13 @@
-import React from 'react';
-import { Container, Row } from 'react-bootstrap';
-import { URLMaker, getAllParentCats } from '../../Helper/Helper';
+import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { Container, Row } from 'react-bootstrap';
+
+import { URLMaker, getAllParentCats } from '../../Helper/Helper';
 import { CityContext } from '../../Context/CityContext';
-import { useEffect } from 'react';
 
 const UpperCards = () => {
 
     const parentCatList = getAllParentCats()
-
     const [currentCity] = useContext(CityContext)
 
 

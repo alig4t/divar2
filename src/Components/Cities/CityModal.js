@@ -1,30 +1,24 @@
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 import { Badge, Button, Form, ListGroup, Modal } from "react-bootstrap";
 import { BiSearch } from "react-icons/bi";
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { HiOutlineArrowRight } from 'react-icons/hi'
 import { IoIosClose } from 'react-icons/io'
 
-// import cityList from "./Cities.json"
-
-// import CitiesList from "../../JsonFiles/Cities.json"
 import CitiesList from "../../JsonFiles/Cities.json"
 import ProvincesList from "../../JsonFiles/Provinces.json"
 
-
-
-
-import { URLMaker } from "../../Helper/Helper";
-
-import React, { useContext, useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { CityContext } from "../../Context/CityContext";
 import { CategoryContext } from "../../Context/CategoryContext";
+
+import { URLMaker } from "../../Helper/Helper";
 
 const CityModal = (props) => {
 
     const navigate = useNavigate()
-    console.log("Cities Render");
-
 
     const [cityContext, setCityContext] = useContext(CityContext)
     const [currentCat] = useContext(CategoryContext)
@@ -71,14 +65,12 @@ const CityModal = (props) => {
 
     function showOrginalCity() {
         if(showList.type !=="parent"){
-            console.log("show original");
             setShowList({ type: "parent", list: provinceObj })
         }
     }
 
 
     useEffect(() => {
-        console.log("connn");
         setSelectedCity({
             ids: [...cityContext.idsArray],
             cities: [...cityContext.citiesList]
@@ -89,20 +81,9 @@ const CityModal = (props) => {
 
     useEffect(() => {
         if (props.show) {
-            console.log("modal open");
             showOrginalCity()
-            // console.log(cityContext);
-            // setSelectedCity({
-            //     ids: [...cityContext.idsArray],
-            //     cities: [...cityContext.citiesList]
-            // })
         }
     }, [props.show])
-
-    // useEffect(()=>{
-    //     console.log(cityContext);
-
-    // })
 
 
     useEffect(() => {
@@ -126,7 +107,6 @@ const CityModal = (props) => {
     }
 
     const checkCityHandler = (id, title, slug) => {
-        console.log("sss");
         let checkedCities = { ...selectedCity }
         if (selectedCity.ids.includes(id)) {
             let index = checkedCities.ids.indexOf(id);
@@ -142,7 +122,6 @@ const CityModal = (props) => {
     }
 
     const showSubCities = (id) => {
-        console.log(id);
         let sub = CitiesList.filter(city => city.province_id === id)
         setShowList({ type: "sub", list: sub })
     }
@@ -198,7 +177,6 @@ const CityModal = (props) => {
                         showList.type === 'parent' ? (
                             <>
                                 {showList.list.map((item) => {
-                                    console.log("parent")
                                     return <ListGroup.Item className="d-flex justify-content-between" key={item.id} onClick={() => showSubCities(item.id)}>
                                         {item.title}
                                         <MdKeyboardArrowLeft />
@@ -214,13 +192,14 @@ const CityModal = (props) => {
                                 <ListGroup.Item className="" onClick={showOrginalCity}>
                                     <span className='dv-backarrow'><HiOutlineArrowRight /></span>
                                     بازگشت به استانها
-
-
                                 </ListGroup.Item>
                                 {showList.list.map((item) => {
                                     return <ListGroup.Item className="d-flex justify-content-between" key={item.id} onClick={() => checkCityHandler(item.id, item.title, item.slug)}>
                                         {item.title}
+                                        <div className="modal-input-div">
                                         <input className="form-check-input" type="checkbox" id={`checkboxNoLabel-${item.id}`} readOnly checked={selectedCity.ids.includes(item.id) ? true : false} />
+
+                                        </div>
                                     </ListGroup.Item>
                                 })}
                             </>
@@ -241,15 +220,7 @@ const CityModal = (props) => {
                         ) : null
                     }
 
-
-
-
-
                 </ListGroup>
-
-
-
-
 
             </Modal.Body>
             <Modal.Footer>

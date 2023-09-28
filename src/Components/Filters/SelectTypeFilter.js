@@ -1,28 +1,20 @@
-import React, { useRef, useState } from 'react';
-import { useEffect } from 'react';
-import { Collapse, ListGroup, Form, Dropdown, Fade } from 'react-bootstrap';
+import React, { useState,useEffect } from 'react';
+import {  useSearchParams } from 'react-router-dom';
+
+import { Collapse, ListGroup, Dropdown } from 'react-bootstrap';
 import { FiChevronDown } from "react-icons/fi"
 import { FiChevronUp } from "react-icons/fi"
-import { RxDotsVertical } from "react-icons/rx"
 import { TiDelete } from "react-icons/ti"
-import { useParams, useSearchParams } from 'react-router-dom';
 
 
 const SelectTypeFilter = (props) => {
 
-    // console.log("SelectTypeFilter Render..");
-
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [selectFilter, setSelectFilter] = useState("")
-    const inputSelectFilter = useRef(null);
 
-    // let { city, cat } = useParams()
     const [queryStirng, setQueryStirng] = useSearchParams();
     const filterParam = queryStirng.get(props.slug)
-
-    // سن بنا
-
 
     const urlMakerWithSelectTypeFilter = (slug, value) => {
         setQueryStirng(params => {
@@ -39,15 +31,11 @@ const SelectTypeFilter = (props) => {
     }
 
     useEffect(() => {
-        console.log("کامپوننت سلکت");
 
         if (queryStirng.has(props.slug)) {
             let val = queryStirng.get(props.slug)
-            console.log(val);
             let inSuggestArray = props.suggestList.filter(item => item.value === val)
-            console.log(inSuggestArray);
             if (inSuggestArray.length === 1) {
-                console.log(inSuggestArray);
                 chooseSelectFilter(inSuggestArray[0])
             }
         } else {
@@ -55,7 +43,6 @@ const SelectTypeFilter = (props) => {
             setFilterOpen(false)
         }
     }, [filterParam])
-    // },[filterParam, cat, city])
 
 
     const chooseSelectFilter = (filObject) => {

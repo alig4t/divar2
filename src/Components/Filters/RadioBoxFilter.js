@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Badge, Collapse, ListGroup } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Collapse, ListGroup } from 'react-bootstrap';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { useOutletContext, useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 
 const RadioBoxFilter = (props) => {
@@ -9,14 +9,11 @@ const RadioBoxFilter = (props) => {
     const [radioBoxOpen, setRadioBoxOpen] = useState(false)
     const [radioBoxChecked, setRadioBoxChecked] = useState(props.default)
 
-    // let { city, cat } = useParams()
     const [queryStirng, setQueryStirng] = useSearchParams();
     const filterParam = queryStirng.get(props.slug)
 
-    console.log("RadioBox Renderd..");
 
     const urlMakerWithRadioBoxFilter = (slug, value) => {
-
         setQueryStirng(params => {
             params.set(slug, value)
             return params
@@ -24,7 +21,6 @@ const RadioBoxFilter = (props) => {
     }
 
     const urlMakerRadioBoxClear = (slug) => {
-
         setQueryStirng(params => {
             if (params.has(slug)) {
                 params.delete(slug)
@@ -49,8 +45,6 @@ const RadioBoxFilter = (props) => {
 
 
     useEffect(() => {
-        console.log("کامپوننت رادیو");
-
         if (queryStirng.has(props.slug)) {
             let val = queryStirng.get(props.slug)
 
@@ -64,10 +58,9 @@ const RadioBoxFilter = (props) => {
             setRadioBoxChecked(props.default)
         }
     }, [filterParam])
-    // }, [filterParam, cat, city])
+
 
     return (
-
         <div className='dv-sidebox'>
             <ListGroup className='dv-filter-header' aria-controls="choose-radioBox">
                 <div className='d-flex flex-row flex-fill' onClick={() => setRadioBoxOpen(!radioBoxOpen)}>

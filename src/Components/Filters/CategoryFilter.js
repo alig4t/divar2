@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 import { useParams } from 'react-router-dom';
@@ -9,7 +9,6 @@ import { BiCategory } from 'react-icons/bi';
 
 const CategoryFilter = () => {
 
-    console.log("CategoryFilter");
     const [categoryModal, setCategoryModal] = useState(false);
     const { catParam } = useParams()
     const [isValidCat, catSlug, catTitle] = isCatSlugValid(catParam)
@@ -18,9 +17,6 @@ const CategoryFilter = () => {
         <>
             <div className='dv-sidebox d-md-none'>
                 <ListGroup onClick={() => setCategoryModal(!categoryModal)} className='dvm-filter-header'>
-                    {/* <span className='pe-2'>
-                {true ? <FiChevronUp /> : <FiChevronDown />}
-            </span> */}
                     <div className='d-flex'>
                         <span className='pe-2'>
                             <BiCategory />

@@ -1,7 +1,7 @@
 import { Button, Form, Navbar, Nav } from "react-bootstrap";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { MdLocationOn } from 'react-icons/md';
 import { BiSearch } from 'react-icons/bi';
@@ -16,7 +16,6 @@ import CityModal from "../Cities/CityModal";
 
 const NavBar = () => {
 
-    console.log("NavBar Render");
     const expand = "lg"
 
     const [city, , titleForNav,slug] = useContext(CityContext)
@@ -95,7 +94,6 @@ const NavBar = () => {
                 </Offcanvas.Body>
             </Navbar.Offcanvas>
 
-            {/* <Cities show={cityModalShow} close={handleCityModalClose} /> */}
             <CityModal show={cityModalShow} close={handleCityModalClose}  />
         </Navbar>
     );

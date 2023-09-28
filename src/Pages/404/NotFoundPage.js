@@ -1,11 +1,11 @@
 
 import React from 'react';
-import NotFound from '../../components/UI/404/NotFound';
+import NotFound from '../../Components/UI/NotFound/NotFound';
 
 const NotFoundPage = () => {
     return ( 
         <div className='container'>
-            <NotFound />
+            <NotFound msg="همچین آدرسی موجود نیست.." />
         </div>
      );
 }

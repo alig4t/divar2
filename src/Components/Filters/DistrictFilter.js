@@ -1,29 +1,29 @@
-import React, { useCallback, useEffect } from 'react';
-import { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { Collapse, ListGroup } from 'react-bootstrap';
-import DistrictModal from '../Modal/DistrictModal';
 import { FiChevronDown } from "react-icons/fi"
 import { FiChevronUp } from "react-icons/fi"
 import { BiChevronLeft } from "react-icons/bi"
-import { useParams, useSearchParams } from 'react-router-dom';
+
+import DistrictModal from '../Modal/DistrictModal';
 
 const DistrictFilter = (props) => {
 
-    console.log("DistrictFilter..");
 
     const [mahalOpen, setMahalOpen] = useState(false);
     const [districtModal, setDistrictModal] = useState(false)
     const [currentDistricts, setCurrentDistricts] = useState([])
-    const closeHandleModal = useCallback(()=>{
+    const closeHandleModal = useCallback(() => {
         setDistrictModal(false)
-    },[])
+    }, [])
     const regexDistrict = /(^\d+(\,\d+)*$)/g;
 
 
     const [queryString, setQueryString] = useSearchParams();
     const filterParam = queryString.get(props.slug)
 
-    const urlMakerWithDistricts = useCallback((slug, ids) => {
+    const urlMakerWithDistricts = (slug, ids) => {
 
         let currentValueString = ids.join(",");
         setQueryString(params => {
@@ -35,8 +35,8 @@ const DistrictFilter = (props) => {
             }
             return params
         })
-       
-    },[])
+
+    }
 
     const openModalDistrictHandler = () => {
         setDistrictModal(true)
@@ -48,33 +48,27 @@ const DistrictFilter = (props) => {
 
 
     useEffect(() => {
-        console.log("کامپوننت محله باکس");
 
         if (queryString.has(props.slug)) {
             let urlValStr = queryString.get(props.slug)
-            // console.log(urlValStr);
-            // console.log(props.itemsList);
+
             if (regexDistrict.test(urlValStr)) {
                 let checkListArray = [];
                 let urlValArray = urlValStr.split(',');
                 urlValArray.forEach((val) => {
                     let inItemsArray = props.itemsList.filter(item => item.id === parseInt(val))
-                    // console.log(val.toLowerCase(), typeof val);
                     if (inItemsArray.length === 1 && !checkListArray.includes((parseInt(val)))) {
                         checkListArray.push(parseInt(val))
                     }
                 })
                 setCurrentDistricts(checkListArray)
-                // console.log(checkListArray);
             } else {
                 setCurrentDistricts([])
-                // console.log("سسسسسسسسسسسسسسسسسس");
             }
         } else {
             setCurrentDistricts([])
         }
     }, [filterParam])
-    // }, [queryStirng, cat, city])
 
 
     return (

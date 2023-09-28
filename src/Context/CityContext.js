@@ -5,14 +5,11 @@ export const CityContext = React.createContext()
 
 export const CityProvider = (props) => {
 
-    console.log("CityProviderrrrrrr");
-
     const [currentCity, setCurrentCity] = useState({
         idsStr: "",
         idsArray: [],
         citiesList: [{ title: "", slug: "" }]
     });
-
 
     let titleForNav = 'انتخاب کنید'
     let slug = '';
@@ -25,11 +22,6 @@ export const CityProvider = (props) => {
         slug = "/" + currentCity.citiesList[0].slug
     }
 
-    // const value = useMemo(() =>
-    // ({ currentCity, setCurrentCity,titleForNav })
-    // , [currentCity])
-    // const value = useMemo(() => ([currentCity, setCurrentCity,titleForNav]), [currentCity]);
-    // [currentCity, setCurrentCity,titleForNav]
     const value = React.useMemo(() => [currentCity, setCurrentCity, titleForNav, slug], [currentCity])
 
     return (

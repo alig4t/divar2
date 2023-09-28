@@ -1,28 +1,29 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+
 import Layout from "../../Components/Layout/Layout";
-import { Button, Container, Row } from "react-bootstrap";
-import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
+
 import { CityContext } from "../../Context/CityContext";
+import { CategoryContext } from "../../Context/CategoryContext";
 // import CityList from "../../Components/Cities/Cities.json"
 import CityList from "../../JsonFiles/Cities.json"
 import CatList from "../../JsonFiles/catlist.json"
-import { URLMakerWithHash, isCatSlugValid } from "../../Helper/Helper";
+
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import NotFound from "../../Components/UI/NotFound/NotFound";
 import WrongUrlMsg from "../../Components/UI/WrongUrlMsg/WrongUrlMsg";
 import Cards from "../../Components/Cards/Cards";
-import { CategoryContext } from "../../Context/CategoryContext";
+import { URLMakerWithHash, isCatSlugValid } from "../../Helper/Helper";
 
 
 const Main = () => {
-    const [ren, setRen] = useState(0)
-    console.log("Main Render");
+
     const location = useLocation()
     const navigate = useNavigate()
     const [queryStirng] = useSearchParams();
 
     const cityParam = queryStirng.get("cities")
-    console.log(cityParam);
     let { city, catParam } = useParams()
 
 
@@ -36,7 +37,6 @@ const Main = () => {
     const regexHash = /(^\d+(\%2C\d+)*$)/g;
 
     useEffect(() => {
-        console.log("catParam");
         let [isValidCat,catSlug] = isCatSlugValid(catParam)
         if (!isValidCat) {
             setWrongUrl({ city: false, cat: true })
@@ -50,7 +50,6 @@ const Main = () => {
 
 
     useEffect(() => {
-        console.log("Manteghhhhhhhhhh");
         let ids = [];
         let wrongAddress = false;
 
@@ -130,10 +129,6 @@ const Main = () => {
 
             </Layout>
 
-            <Button className="mt-5" style={{ float: "left" }} onClick={() => setRen(ren + 1)} type='button' variant='danger' >Rerender {ren}</Button>
-            <Link to="/s/iran/real-estate?cities=225%2xC64" style={{ float: "left" }} >cat</Link>{' '}
-            <Link to="/s/tehran/" style={{ float: "left" }} >right link</Link>{' '}
-            <Link to="/s/tehrasn/real-estate" style={{ float: "left" }} >right link</Link>{' '}
         </>
     );
 }

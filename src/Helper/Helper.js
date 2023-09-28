@@ -48,12 +48,8 @@ export const URLMaker = (city = [], cat, filters = {}) => {
 
     let filtersString = '?' + new URLSearchParams(filters);
     let urlArray = ['/s', cityName, catName]
-    // console.log(catName);
     urlArray = urlArray.filter((seg) => seg !== '')
     urlArray = urlArray.join('/')
-    // console.log(urlArray + filtersString);
-
-    // console.log(urlArray + filtersString);
 
     return urlArray + filtersString
 
@@ -67,7 +63,6 @@ export const URLMakerWithHash = (hash, cat) => {
 
 export const getSortedCities = (cityList) => {
 
-    console.log("helper");
 
     let provinces = { ProvinceWithCity: {}, onlyCities: [] };
 
@@ -100,7 +95,6 @@ export const getSortedCities = (cityList) => {
             })
         }
     }
-    // console.log(provinceObj["ProvinceWithCity"]);
     return provinces
 }
 
