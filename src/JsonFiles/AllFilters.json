@@ -180,5 +180,212 @@
                 ]
             }
         ]
+    },
+    {
+        "catId": [16,19,20],
+        "filter": [
+            {
+                "slug": "status",
+                "type": "SelectTypeFilter",
+                "title": "وضعیت کالا",
+                "unit": "",
+                "suggestList": [
+                    {
+                        "title": "نو",
+                        "value": "new"
+                    },
+                    {
+                        "title": "در حد نو",
+                        "value": "like-new"
+                    },
+                    {
+                        "title": "کارکرده",
+                        "value": "used"
+                    },
+                    {
+                        "title": "نیاز به تعمیر",
+                        "value": "repair-needed"
+                    }
+                ],
+                "placeHolder": "انتخاب"
+            }     
+        ]
+    },
+    {
+        "catId": [71,72,73,74,75,75,81,82,83,91,92,93,94],
+        "filter": [
+            {
+                "slug": "brand_model",
+                "type": "DistrictFilter",
+                "title": "برند و مدل",
+                "itemsList": [
+                    {
+                        "id": 65,
+                        "title": "پاناسونیک"
+                    },
+                    {
+                        "id": 68,
+                        "title": "اپل"
+                    },
+                    {
+                        "id": 74,
+                        "title": "ایسوس"
+                    },
+                    {
+                        "id": 76,
+                        "title": "سامسونگ"
+                    },
+                    {
+                        "id": 82,
+                        "title": "هواوی"
+                    }
+                ]
+            },
+            {
+                "slug": "originality",
+                "type": "SelectTypeFilter",
+                "title": "اصالت برند",
+                "unit": "",
+                "suggestList": [
+                    {
+                        "title": "اصل",
+                        "value": "original"
+                    },
+                    {
+                        "title": "غیر اصل",
+                        "value": "fake"
+                    }
+                ],
+                "placeHolder": "انتخاب"
+            },     
+            {
+                "slug": "ram_memory",
+                "type": "SelectTypeFilter",
+                "title": "مقدار رم",
+                "unit": "",
+                "suggestList": [
+                    {
+                        "title": "2 گیگ",
+                        "value": "2gb"
+                    },
+                    {
+                        "title": "4 گیگ",
+                        "value": "4gb"
+                    }
+                ],
+                "placeHolder": "انتخاب"
+            },
+            {
+                "slug": "status",
+                "type": "SelectTypeFilter",
+                "title": "وضعیت کالا",
+                "unit": "",
+                "suggestList": [
+                    {
+                        "title": "نو",
+                        "value": "new"
+                    },
+                    {
+                        "title": "در حد نو",
+                        "value": "like-new"
+                    },
+                    {
+                        "title": "کارکرده",
+                        "value": "used"
+                    },
+                    {
+                        "title": "نیاز به تعمیر",
+                        "value": "repair-needed"
+                    }
+                ],
+                "placeHolder": "انتخاب"
+            }          
+        ]
+    },
+    {
+        "catId": [17,101,102,103,104,105,106,107,108,111,112,113,114,115,116,117,118,119,120],
+        "filter": [
+            {
+                "slug": "status",
+                "type": "SelectTypeFilter",
+                "title": "وضعیت کالا",
+                "unit": "",
+                "suggestList": [
+                    {
+                        "title": "نو",
+                        "value": "new"
+                    },
+                    {
+                        "title": "در حد نو",
+                        "value": "like-new"
+                    },
+                    {
+                        "title": "کارکرده",
+                        "value": "used"
+                    },
+                    {
+                        "title": "نیاز به تعمیر",
+                        "value": "repair-needed"
+                    }
+                ],
+                "placeHolder": "انتخاب"
+            },
+            {
+                "slug": "brands",
+                "type": "DistrictFilter",
+                "title": "سازنده",
+                "itemsList": [
+                    {
+                        "id": 65,
+                        "title": "پاناسونیک"
+                    },
+                    {
+                        "id": 68,
+                        "title": "الجی"
+                    },
+                    {
+                        "id": 74,
+                        "title": "سامسونگ"
+                    },
+                    {
+                        "id": 76,
+                        "title": "مباشی"
+                    },
+                    {
+                        "id": 82,
+                        "title": "بوش"
+                    },
+                    {
+                        "id": 82,
+                        "title": "هیتاچی"
+                    }
+                ]
+            },
+            {
+                "slug": "goods-business-type",
+                "type": "RadioBoxFilter",
+                "title": "نوع آگهی دهنده",
+                "itemsList": [
+                    {
+                        "title": "همه",
+                        "value": "all"
+                    },
+                    {
+                        "title": "شخصی",
+                        "value": "personal"
+                    },
+                    {
+                        "title": "فروشگاه",
+                        "value": "marketplace"
+                    }
+                ],
+                "default": "all"
+            } 
+        ]
     }
+
+
+
+
+
 ]

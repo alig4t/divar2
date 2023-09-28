@@ -17,8 +17,6 @@ const FilterSection = () => {
     const [currentCat] = useContext(CategoryContext)
 
 
-
-
     const filterComponents = () => {
         return currentCat?.filters?.map((fil,index) => {
             let ComponentFilter = fil.type
