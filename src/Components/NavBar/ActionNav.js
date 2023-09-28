@@ -11,6 +11,7 @@ import ModalCategories from '../Categories/ModalCategories';
 import FilterModal from '../Sidebar/FilterModal';
 import UpperCards from './UpperCards';
 import { URLMaker } from '../../Helper/Helper';
+import BottomNavbar from './BottomNavbar';
 
 // import "./ActionNav.css"
 
@@ -96,6 +97,7 @@ const ActionNav = () => {
                 <UpperCards />   
             )
             }
+            <BottomNavbar openModal={categoryModalHandler} />
             <FilterModal showModal={filterModal} devicePhone={true} closeModal={() => setFilterModal(false)} />
 
             <ModalCategories showModal={categoryModal} closeModal={closeCategoryModal} />

@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import ActionNav from "../NavBar/ActionNav";
-import BottomNavbar from "../NavBar/BottomNavbar";
 
 const Layout = (props) => {
     return (
@@ -9,7 +8,6 @@ const Layout = (props) => {
             <NavBar />
             <ActionNav />
             {props.children}
-            <BottomNavbar />
         </>
     );
 }

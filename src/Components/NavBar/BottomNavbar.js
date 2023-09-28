@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Navbar from 'react-bootstrap/Navbar';
 import {AiOutlineBars} from 'react-icons/ai'
 import {AiFillPlusCircle} from 'react-icons/ai'
@@ -6,7 +6,11 @@ import {BsFillPersonFill} from 'react-icons/bs'
 import {BsFillChatFill} from 'react-icons/bs'
 import {BiHomeAlt} from 'react-icons/bi'
 
-const BottomNavbar = () => {
+const BottomNavbar = (props) => {
+
+    const [catModalOpen,setCatModalOpen] = useState(false)
+    
+ 
 
     return (
         <nav className="d-md-none dv-mobile-bottom-nav fixed-bottom d-flex justify-content-around">
@@ -15,7 +19,7 @@ const BottomNavbar = () => {
                 <p>آگهی ها</p>
             </div>
            
-            <div className='sub-bottom-nav'>
+            <div className='sub-bottom-nav' onClick={props.openModal}>
                 <span><AiOutlineBars /></span>
                 <p>دسته ها</p>
             </div>
@@ -36,7 +40,6 @@ const BottomNavbar = () => {
             </div>
            
 
-            {/* <a class="navbar-brand" href="#">Fixed bottom</a> */}
         </nav>
     );
 }
