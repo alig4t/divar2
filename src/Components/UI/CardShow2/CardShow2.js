@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaRegComment } from 'react-icons/fa'
+import { MdOutlineHideImage } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 
@@ -23,22 +24,34 @@ const CardShow2 = (props) => {
                                                 {item.features.map((feature, subIndex) => {
                                                     return (
                                                         <p key={subIndex}>
-                                                            {feature.title + " : " + feature.value + " تومان "}
+                                                            {feature.title + " : " + Number(feature.value).toLocaleString() + " تومان "}
                                                         </p>
                                                     )
                                                 })}
                                             </div>
                                             <div className='dv-info-bottom'>
-                                                <span className='text-muted'>نیم ساعت پیش در تهران، جنت آباد جنوبی</span>
+                                                <span className='text-muted'>نیم ساعت پیش در تهران، محله ستارخان</span>
                                             </div>
 
                                         </div>
                                         <div className='dvpost-feature align-self-end pb-1 pe-1'>
                                             <FaRegComment />
                                         </div>
-                                        <div className='dvpost-thumb'>
+                                        {item.imgThumb.length > 0 ? (
+                                            <div className='dvpost-thumb'>
+                                                <img src={process.env.PUBLIC_URL + "/assets/images/2023/05/13/" + item.imgThumb} />
+                                            </div>
+                                        ) : (
+                                            <div className='dvpost-thumb-placeholder'>
+                                                <MdOutlineHideImage />
+                                            </div>
+                                        )
+                                        }
+                                        {/* <div className='dvpost-thumb'>
                                             <img src={process.env.PUBLIC_URL + "/assets/images/2023/05/13/" + item.imgThumb} />
-                                        </div>
+                                        </div> */}
+
+
                                     </div>
                                 </div>
                             </Link>

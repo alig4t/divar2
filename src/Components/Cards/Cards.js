@@ -13,6 +13,7 @@ import "./Card2.css"
 
 const Cards = () => {
 
+    // https://mocki.io/v1/e69e3e8c-6662-438a-90b4-d5c1a354f661
     const location = useLocation()
 
     const { isLoading, error, data, refetch } = useQuery(
@@ -20,7 +21,7 @@ const Cards = () => {
         {
             queryKey: ['repoData'],
             queryFn: () =>
-                fetch('https://mocki.io/v1/e69e3e8c-6662-438a-90b4-d5c1a354f661').then(
+                fetch('https://mocki.io/v1/cdca9caf-f2ed-4670-9166-bb03ea91d9d0').then(
                     (res) => res.json(),
                 ),
             retry: 2,

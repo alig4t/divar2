@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { MdOutlineHideImage } from 'react-icons/md'
 
 const CardShow1 = (props) => {
     return (
@@ -15,7 +16,14 @@ const CardShow1 = (props) => {
                                 <span className='cat-card'>
                                     {item.cat_title}
                                 </span>
-                                <Card.Img variant="top" src={process.env.PUBLIC_URL + "/assets/images/2023/05/13/" + item.imgThumb} />
+                                {item.imgThumb.length > 0 ? (
+                                    <Card.Img variant="top" src={process.env.PUBLIC_URL + "/assets/images/2023/05/13/" + item.imgThumb} />
+                                ) : (
+                                    <div className='place-img-card'>
+                                        <MdOutlineHideImage />
+                                    </div>
+                                )
+                                }
 
                             </div>
                             <Card.Body>
@@ -25,13 +33,13 @@ const CardShow1 = (props) => {
                                     {item.features.map((feature, index) => {
                                         return (
                                             <p key={index}>
-                                                {feature.title + " : " + feature.value + " تومان "}
+                                                {feature.title + " : " + Number(feature.value).toLocaleString() + " تومان "}
                                             </p>
                                         )
                                     })}
 
                                 </div>
-                                <span className='zaman'>نیم ساعت پیش در تهران، جنت آباد جنوبی</span>
+                                <span className='zaman'>نیم ساعت پیش در تهران، محله ستارخان</span>
                                 <Card.Text>
                                 </Card.Text>
                             </Card.Body>
