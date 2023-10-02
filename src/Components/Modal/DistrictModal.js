@@ -23,6 +23,17 @@ const DistrictModal = (props) => {
   const [selectedDistricts, setSelectedDistricts] = useState([])
   const [clickableBtn, setClickableBtn] = useState(false);
 
+  
+  useEffect(() => {
+    function backBrowerClicked() {
+      props.closeModal()
+    }
+    window.addEventListener('popstate', backBrowerClicked)
+    return () => {
+      window.removeEventListener('popstate', backBrowerClicked)
+    };
+  }, [])
+
 
 
 

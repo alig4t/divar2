@@ -33,6 +33,20 @@ const CityModal = (props) => {
     const [showList, setShowList] = useState({ type: "", list: [] })
 
 
+
+    useEffect(() => {
+        function backBrowerClicked() {
+            props.close()
+        }
+        window.addEventListener('popstate', backBrowerClicked)
+        return () => {
+            window.removeEventListener('popstate', backBrowerClicked)
+        };
+    }, [])
+
+
+
+
     const changeCityHandler = () => {
         props.close()
         let idsStr = (selectedCity.ids.sort()).join("");
