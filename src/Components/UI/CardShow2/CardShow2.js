@@ -13,7 +13,7 @@ const CardShow2 = (props) => {
                     titleEncode = encodeURIComponent(titleEncode.replace(/ /g, "-"))
                     return (
                         <div className='dv-card' key={index}>
-                            <Link to={`/v/${titleEncode}/${item.code}`}>
+                            {/* <Link to={`/v/${titleEncode}/${item.code}`}> */}
                                 <div className='dv-card-border'>
                                     <div className='dv-post'>
                                         <div className='dvpost-info'>
@@ -47,14 +47,10 @@ const CardShow2 = (props) => {
                                             </div>
                                         )
                                         }
-                                        {/* <div className='dvpost-thumb'>
-                                            <img src={process.env.PUBLIC_URL + "/assets/images/2023/05/13/" + item.imgThumb} />
-                                        </div> */}
-
 
                                     </div>
                                 </div>
-                            </Link>
+                            {/* </Link> */}
                         </div>
 
                     )

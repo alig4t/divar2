@@ -10,7 +10,7 @@ const CardShow1 = (props) => {
             titleEncode = encodeURIComponent(titleEncode.replace(/ /g, "-"))
             return (
                 <div className='col-sm-6 col-lg-4 dv-card-section p-4' key={item.id}>
-                    <Link to={`/v/${titleEncode}/${item.code}`}>
+                    {/* <Link to={`/v/${titleEncode}/${item.code}`}> */}
                         <Card>
                             <div className='img-box'>
                                 <span className='cat-card'>
@@ -44,7 +44,7 @@ const CardShow1 = (props) => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </Link>
+                    {/* </Link> */}
                 </div>
             )
 

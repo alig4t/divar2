@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import MainCore from './Pages/Main/MainCore';
-import './App.css';
+
 import { CityProvider } from './Context/CityContext';
 import { CategoryProvider } from './Context/CategoryContext';
 import SelectCity from './Pages/SelectCity/SelectCity';
