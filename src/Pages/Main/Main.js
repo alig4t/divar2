@@ -90,17 +90,15 @@ const Main = () => {
             }
         } else {
             let idsStr = (ids.sort()).join("");
+            localStorage.setItem("lastCities", ids.join("%2C"))
             if (currentCity.idsStr !== idsStr) {
                 setCurrentCity({
                     idsStr,
                     idsArray: ids,
                     citiesList: cityListArray
                 })
-                localStorage.setItem("lastCities", ids.join("%2C"))
             }
         }
-
-
     }, [city,cityParam])
 
     
